@@ -1,0 +1,3 @@
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
+syntax on
