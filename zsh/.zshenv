@@ -17,10 +17,7 @@ export WINEPREFIX="$XDG_DATA_HOME/wine"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export KAGGLE_CONFIG_DIR="$XDG_CONFIG_HOME/kaggle"
-export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
-export AZCOPY_JOB_PLAN_LOCATION="$XDG_STATE_HOME/azcopy"
-export AZCOPY_LOG_LOCATION="$XDG_STATE_HOME/azcopy/logs"
-export AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
+export GOPATH="$XDG_DATA_HOME/go"
 
 if [ -f "$HOME/.secret" ]; then
   source "$HOME/.secret"
