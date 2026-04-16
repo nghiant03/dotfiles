@@ -133,5 +133,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-export PATH="$XDG_DATA_HOME/go/bin:$PATH"
+export PATH="$XDG_DATA_HOME/go/bin:$CARGO_HOME/bin:$PATH"
 
