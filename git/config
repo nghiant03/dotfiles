@@ -1,0 +1,19 @@
+[user]
+	signingkey = 46BD00739D95F344 
+	email = nghiant@mailbox.org
+	name = nghiant
+[commit]
+	gpgSign = true
+[core]
+	editor = nvim
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[http]
+	postBuffer = 524288000
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
