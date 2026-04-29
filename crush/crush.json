@@ -1,0 +1,29 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "nvidia": {
+      "type": "openai-compat",
+      "name": "NVIDIA NIM",
+      "base_url": "https://integrate.api.nvidia.com/v1",
+      "api_key": "$NVIDIA_API_KEY",
+      "models": [
+        {
+          "id": "z-ai/glm-5.1",
+          "name": "GLM-5.1 (Thinking)",
+          "context_window": 131072,
+          "default_max_tokens": 16384,
+          "can_reason": true,
+          "supports_tools": true,
+          "supports_attachments": false
+        }
+      ]
+    }
+  },
+  "models": {
+    "large": {
+      "model": "z-ai/glm-5.1",
+      "provider": "nvidia"
+    }
+  }
+}
+
