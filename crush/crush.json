@@ -9,21 +9,26 @@
       "models": [
         {
           "id": "z-ai/glm-5.1",
-          "name": "GLM-5.1 (Thinking)",
+          "name": "GLM-5.1",
           "context_window": 131072,
           "default_max_tokens": 16384,
           "can_reason": true,
+          "has_reasoning_efforts": false,
+          "supports_tools": true,
+          "supports_attachments": false
+        },
+        {
+          "id": "deepseek-ai/deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro",
+          "context_window": 163840,
+          "default_max_tokens": 16384,
+          "can_reason": true,
+          "has_reasoning_efforts": true,
           "supports_tools": true,
           "supports_attachments": false
         }
       ]
     }
   },
-  "models": {
-    "large": {
-      "model": "z-ai/glm-5.1",
-      "provider": "nvidia"
-    }
-  }
 }
 
