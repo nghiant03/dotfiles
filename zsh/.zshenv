@@ -22,3 +22,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 if [ -f "$HOME/.secret" ]; then
   source "$HOME/.secret"
 fi
+
+# uv
+export PATH="/home/Sinner/.local/share/../bin:$PATH"
