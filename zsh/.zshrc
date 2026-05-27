@@ -106,8 +106,8 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias clear='/usr/bin/clear'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias crush_dev="$HOME/Git/Fork/crush/crush"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

@@ -17,5 +17,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[includeIf "gitdir:~/Github/Work/"]
+[includeIf "gitdir:~/Git/Work/"]
     path = ~/.config/git/subconfig/work
