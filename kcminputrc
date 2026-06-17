@@ -1,0 +1,5 @@
+[Libinput][1267][12801][ASUE1304:00 04F3:3201 Mouse]
+PointerAccelerationProfile=1
+
+[Libinput][1267][12801][ASUE1304:00 04F3:3201 Touchpad]
+Enabled=true

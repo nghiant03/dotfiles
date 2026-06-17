@@ -1,0 +1,2 @@
+# Copy /root/.config/backintime/config here from a root shell:
+# cp /root/.config/backintime/config ~/.config/backintime/root-config

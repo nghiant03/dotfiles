@@ -1,0 +1,7 @@
+auto_activate_base: false
+create_default-package:
+  - pip
+  - numpy
+  - pandas
+solver: libmamba
+channel_priority: flexible

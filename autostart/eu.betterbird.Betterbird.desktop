@@ -1,0 +1,24 @@
+[Desktop Action ComposeMessage]
+Exec=env GDK_BACKEND=x11 betterbird -compose
+Name=Write new message
+
+[Desktop Action OpenAddressBook]
+Exec=env GDK_BACKEND=x11 betterbird -addressbook
+Name=Open address book
+
+[Desktop Entry]
+Actions=ComposeMessage;OpenAddressBook;
+Categories=Network;Email;
+Comment=Send and receive mail with Betterbird
+Encoding=UTF-8
+Exec=env GDK_BACKEND=x11 betterbird %u
+GenericName=Mail Client
+Icon=betterbird
+Keywords=Email;E-mail;Newsgroup;Feed;RSS
+MimeType=message/rfc822;x-scheme-handler/mailto;application/x-xpinstall;application/x-extension-ics;text/calendar;text/vcard;text/x-vcard;x-scheme-handler/webcal;x-scheme-handler/webcals;x-scheme-handler/mid;
+Name=Betterbird
+StartupNotify=true
+StartupWMClass=eu.betterbird.Betterbird
+Terminal=false
+Type=Application
+Version=1.0
