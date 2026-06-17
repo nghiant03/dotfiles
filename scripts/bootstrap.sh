@@ -80,6 +80,7 @@ link_configs() {
   local paths=(
     autostart
     backintime
+    conda
     conky
     crush
     fcitx5

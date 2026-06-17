@@ -1,5 +1,5 @@
 auto_activate_base: false
-create_default-package:
+create_default_packages:
   - pip
   - numpy
   - pandas
