@@ -1,0 +1,64 @@
+__pycache__/
+
+# Volatile application state
+chromium/
+google-chrome/
+mozilla/
+YouTube Music Desktop App/
+superProductivity/
+vesktop/sessionData/
+winboat/
+GIMP/
+KDE/
+**/Cache/
+**/Code Cache/
+**/GPUCache/
+**/DawnWebGPUCache/
+**/DawnGraphiteCache/
+**/Crashpad/
+**/Session Storage/
+**/Local Storage/
+**/IndexedDB/
+**/Service Worker/
+**/blob_storage/
+**/Partitions/
+**/Shared Dictionary/
+**/Trust Tokens*
+**/Cookies*
+**/DIPS*
+**/TransportSecurity
+**/Network Persistent State
+**/Singleton*
+**/*.log
+**/*.ldb
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.pma
+**/LOCK
+**/LOG
+**/LOG.old
+**/MANIFEST-*
+
+# Secrets and machine identities
+git/credentials
+gh/hosts.yml
+kaggle/kaggle.json
+vastai/
+rclone/rclone.conf
+rustdesk/
+kdeconnect/*key*
+kdeconnect/*Key*
+kdeconnect/*.pem
+github-copilot/auth.db*
+sops/age/
+pulse/cookie
+
+# Generated zsh completion caches
+zsh/.zcompdump*
+
+# Large/runtime-managed package stores
+nvm/versions/
+luarocks/lib/
+luarocks/share/
+go/telemetry/
