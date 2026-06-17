@@ -51,6 +51,7 @@ From the Arch install stage after creating the user:
 
 ```sh
 git clone <dotfiles-repo> ~/.config
+~/.config/scripts/bootstrap.sh aur-helper
 ~/.config/scripts/bootstrap.sh packages
 ~/.config/scripts/bootstrap.sh link
 su -c '~/.config/scripts/bootstrap.sh system-zsh'

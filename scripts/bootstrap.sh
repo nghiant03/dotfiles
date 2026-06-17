@@ -18,7 +18,33 @@ link_path() {
   ln -s "$source" "$target"
 }
 
+install_aur_helper() {
+  local helper="${AUR_HELPER:-yay}"
+  if command -v "$helper" >/dev/null 2>&1; then
+    return 0
+  fi
+  if [[ "$helper" != yay ]]; then
+    echo "$helper is not installed; install it first or unset AUR_HELPER to bootstrap yay" >&2
+    exit 1
+  fi
+  if [[ $EUID -eq 0 ]]; then
+    echo "Run as a regular user to install yay" >&2
+    exit 1
+  fi
+  if ! command -v sudo >/dev/null 2>&1; then
+    echo "sudo is required to install yay dependencies" >&2
+    exit 1
+  fi
+  sudo pacman -S --needed base-devel git
+  local build_dir
+  build_dir="$(mktemp -d)"
+  trap "rm -rf $(printf '%q' "$build_dir")" EXIT
+  git clone https://aur.archlinux.org/yay.git "$build_dir/yay"
+  (cd "$build_dir/yay" && makepkg -si --needed)
+}
+
 install_packages() {
+  install_aur_helper
   "$ROOT/scripts/install-packages.sh"
 }
 
@@ -111,9 +137,10 @@ install_system_zsh() {
 
 usage() {
   cat <<'USAGE'
-Usage: scripts/bootstrap.sh [all|packages|link|system-zsh|root-backintime|package-hook|export-packages]
+Usage: scripts/bootstrap.sh [all|aur-helper|packages|link|system-zsh|root-backintime|package-hook|export-packages]
 
 Run after creating the user in Arch install:
+  scripts/bootstrap.sh aur-helper
   scripts/bootstrap.sh packages
   scripts/bootstrap.sh link
   su -c 'scripts/bootstrap.sh system-zsh'
@@ -127,6 +154,7 @@ case "${1:-all}" in
     link_configs
     install_system_zsh
     ;;
+  aur-helper) install_aur_helper ;;
   packages) install_packages ;;
   link) link_configs ;;
   system-zsh) install_system_zsh ;;
