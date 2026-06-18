@@ -1,9 +1,0 @@
-[Greeter][Wallpaper][com.github.catsout.wallpaperEngineKde][General]
-PerOptChanged=true
-SteamLibraryPath[$e]=file:$HOME/.local/share/Steam
-WallpaperSource[$e]=file:$HOME/.local/share/Steam/steamapps/workshop/content/431960/2871097891/scene.json+scene
-WallpaperWorkShopId=2871097891
-
-[Greeter][Wallpaper][org.kde.image][General]
-Image=/home/Sinner/Pictures/cbcp123.png
-PreviewImage=/home/Sinner/Pictures/cbcp123.png
