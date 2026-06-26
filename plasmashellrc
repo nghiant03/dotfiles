@@ -3,6 +3,7 @@ floating=0
 panelLengthMode=0
 panelOpacity=2
 panelVisibility=1
+shell=org.kde.plasma.desktop
 
 [PlasmaViews][Panel 40][Defaults]
 thickness=38
