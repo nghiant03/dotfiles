@@ -181,9 +181,6 @@ MaximumRemoteSize=0
 FindPrev=
 WhatsThis=
 
-[Sounds]
-Theme=oxygen
-
 [WM]
 activeBackground=39,44,49
 activeBlend=252,252,252
