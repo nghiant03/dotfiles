@@ -185,7 +185,7 @@ DialogWidth=724
 extraItems=org.kde.plasma.cameraindicator,org.kde.kdeconnect,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kscreen,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.keyboardlayout,org.kde.plasma.notifications,org.kde.plasma.weather,org.kde.plasma.kclock_1x2,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller
 hiddenItems=KMix,Fcitx,vktablet,org.kde.plasma.manage-inputmethod,zero-trust-client,org.kde.plasma.mediacontroller
 knownItems=org.kde.plasma.notifications,org.kde.plasma.cameraindicator,org.kde.plasma.manage-inputmethod,org.kde.kdeconnect,org.kde.plasma.mediacontroller,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardlayout,org.kde.plasma.clipboard,org.kde.plasma.volume,org.kde.kscreen,org.kde.plasma.bluetooth,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.plasma.networkmanagement,org.kde.plasma.printmanager,org.kde.kupapplet,org.kde.plasma.weather,org.kde.plasma.kclock_1x2
-shownItems=org.kde.plasma.battery
+shownItems=org.kde.plasma.battery,Betterbird-systray-icon
 
 [Containments][40][Applets][54]
 immutability=1
