@@ -13,8 +13,17 @@ wmclassmatch=1
 noborderrule=2
 
 [General]
-count=2
-rules=d3803c9f-6493-48e8-a338-ab5e95cb8b18,205a88ee-e2ed-43fa-9780-7ef95cf15c8a
+count=3
+rules=d3803c9f-6493-48e8-a338-ab5e95cb8b18,205a88ee-e2ed-43fa-9780-7ef95cf15c8a,af8bf26e-bf80-4323-ad5e-601d82a95b3e
+
+[af8bf26e-bf80-4323-ad5e-601d82a95b3e]
+Description=conky
+desktops=\\0
+desktopsrule=2
+minimizerule=2
+wmclass=conky conky
+wmclasscomplete=true
+wmclassmatch=1
 
 [d3803c9f-6493-48e8-a338-ab5e95cb8b18]
 Description=kitty nvim
