@@ -5,6 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export CODEX_HOME="$XDG_DATA_HOME/codex"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
@@ -24,4 +25,4 @@ if [ -f "$HOME/.secret" ]; then
 fi
 
 # uv
-export PATH="/home/Sinner/.local/share/../bin:$PATH"
+export PATH="/home/nghiant/.local/share/../bin:$PATH"
