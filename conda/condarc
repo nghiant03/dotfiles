@@ -1,7 +1,8 @@
+envs_dirs:
+  - /home/nghiant/.local/share/conda/envs
+
+pkgs_dirs:
+  - /home/nghiant/.cache/conda/pkgs
+
+register_envs: false
 auto_activate_base: false
-create_default_packages:
-  - pip
-  - numpy
-  - pandas
-solver: libmamba
-channel_priority: flexible
