@@ -16,5 +16,6 @@
       "disable": true
     }
   },
+  "default_agent": "build",
   "lsp": true
 }
