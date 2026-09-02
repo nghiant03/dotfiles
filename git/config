@@ -1,5 +1,4 @@
 [user]
-	signingkey = 46BD00739D95F344 
 	email = nghiant@mailbox.org
 	name = nghiant
 [commit]
@@ -17,5 +16,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[includeIf "gitdir:~/Git/Work/"]
-    path = ~/.config/git/subconfig/work
+[include]
+	path = .secret
