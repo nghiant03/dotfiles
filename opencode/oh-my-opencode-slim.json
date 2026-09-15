@@ -5,7 +5,7 @@
     "layout": "main-vertical",
     "main_pane_size": 60
   },
-  "preset": "openai",
+  "preset": "hyper",
   "presets": {
     "openai": {
       "orchestrator": {
@@ -109,8 +109,8 @@
     },
     "hyper": {
       "orchestrator": {
-        "model": "hyper/glm-5.3",
-				"variant": "high",
+        "model": "hyper/minimax-m3",
+        "variant": "high",
         "skills": [
           "*"
         ],
@@ -129,7 +129,7 @@
       },
       "librarian": {
         "model": "hyper/glm-5.3-flash",
-				"variant": "low",
+        "variant": "low",
         "skills": [],
         "mcps": [
           "context7",
@@ -138,7 +138,7 @@
       },
       "explorer": {
         "model": "hyper/glm-5.3-flash",
-				"variant": "low",
+        "variant": "low",
         "skills": [],
         "mcps": []
       },
@@ -148,7 +148,7 @@
         "mcps": []
       },
       "fixer": {
-        "model": "hyper/glm-5.3-flash",
+        "model": "hyper/deepseek-v4.1-flash",
         "variant": "high",
         "skills": [],
         "mcps": []

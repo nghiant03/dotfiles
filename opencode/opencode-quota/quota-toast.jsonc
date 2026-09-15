@@ -1,0 +1,50 @@
+{
+  // OpenCode Quota settings
+  // Docs: https://github.com/slkiser/opencode-quota
+
+  "enabledProviders": "auto",
+
+  "tuiCommandDisplay": "inline",
+
+  "tuiSidebarPanel": {
+    "enabled": true
+  },
+
+  "enableToast": false,
+  "tuiCompactStatus": {
+    "enabled": false
+  },
+
+  "maintainerAnnouncements": {
+    "enabled": true,
+    "home": true
+  },
+
+  // Charm Hyper credits: GET https://hyper.charm.land/v1/credits
+  "quotaProviders": [
+    {
+      "id": "hyper-credits",
+      "providerId": "hyper",
+      "label": "Hyper",
+      "mode": "remote-api",
+      "url": "https://hyper.charm.land/v1/credits",
+      "format": "json-v1",
+      "adapter": {
+        "mappings": [
+          {
+            "resultType": "balance",
+            "name": "Credits",
+            "label": "Credits:",
+            "unit": "credits",
+            "unitPosition": "suffix",
+            "metric": {
+              "type": "value",
+              "valueType": "balance",
+              "value": { "path": ["balance"] }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
