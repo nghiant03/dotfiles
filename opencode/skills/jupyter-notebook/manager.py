@@ -2,9 +2,7 @@
 """Token-efficient Jupyter Notebook manager."""
 
 import os
-import shutil
 import sys
-from datetime import datetime
 
 try:
     import nbformat
@@ -34,12 +32,6 @@ def _load(filepath):
 def _save(nb, filepath):
     with open(filepath, "w", encoding="utf-8") as f:
         nbformat.write(nb, f)
-
-
-def _backup(filepath):
-    backup_path = f"{filepath}.bak-{datetime.now().strftime('%Y%m%d%H%M%S%f')}"
-    shutil.copy2(filepath, backup_path)
-    return backup_path
 
 
 def _parse_index(value):
@@ -135,13 +127,6 @@ def _print_cell(cell, index, *, source_limit=DEFAULT_SOURCE_LIMIT, output_limit=
                     print(f"  → data: {keys}")
 
 
-def _mutating_save(nb, filepath, backup):
-    backup_path = _backup(filepath) if backup else None
-    _save(nb, filepath)
-    if backup_path:
-        print(f"Backup: {backup_path}")
-
-
 # ── Commands ─────────────────────────────────────────────────────────
 
 def summary_notebook(filepath):
@@ -209,7 +194,7 @@ def check_notebook(filepath):
     print(f"OK: Notebook is valid ({len(nb.cells)} cell(s)).")
 
 
-def edit_cell(filepath, index, content_path, *, backup=True):
+def edit_cell(filepath, index, content_path):
     """Replace a cell's source and clear its outputs."""
     nb = _load(filepath)
     _validate_index(nb, index)
@@ -221,39 +206,39 @@ def edit_cell(filepath, index, content_path, *, backup=True):
     if "execution_count" in nb.cells[index]:
         nb.cells[index].execution_count = None
 
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Cell {index} updated.")
 
 
-def add_cell(filepath, content_path, cell_type="code", *, backup=True):
+def add_cell(filepath, content_path, cell_type="code"):
     """Append a new cell to the end of the notebook."""
     nb = _load(filepath)
     source = _read_content(content_path)
     nb.cells.append(_make_cell(source, cell_type))
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Added {cell_type} cell at index {len(nb.cells) - 1}.")
 
 
-def insert_cell(filepath, index, content_path, cell_type="code", *, backup=True):
+def insert_cell(filepath, index, content_path, cell_type="code"):
     """Insert a new cell at a specific position."""
     nb = _load(filepath)
     _validate_index(nb, index, allow_append=True)
     source = _read_content(content_path)
     nb.cells.insert(index, _make_cell(source, cell_type))
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Inserted {cell_type} cell at index {index}.")
 
 
-def delete_cell(filepath, index, *, backup=True):
+def delete_cell(filepath, index):
     """Remove a cell by index."""
     nb = _load(filepath)
     _validate_index(nb, index)
     nb.cells.pop(index)
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Deleted cell {index}. Notebook now has {len(nb.cells)} cell(s).")
 
 
-def clear_outputs(filepath, index=None, *, backup=True):
+def clear_outputs(filepath, index=None):
     """Clear outputs for one code cell or all code cells."""
     nb = _load(filepath)
     if index is not None:
@@ -270,22 +255,22 @@ def clear_outputs(filepath, index=None, *, backup=True):
             cell.outputs = []
             cell.execution_count = None
 
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Cleared outputs in {cleared} cell(s).")
 
 
-def change_type(filepath, index, cell_type, *, backup=True):
+def change_type(filepath, index, cell_type):
     """Change a cell type while preserving source."""
     nb = _load(filepath)
     _validate_index(nb, index)
     new_cell = _make_cell(nb.cells[index].source, cell_type)
     new_cell.metadata = nb.cells[index].get("metadata", {})
     nb.cells[index] = new_cell
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Cell {index} changed to {cell_type}.")
 
 
-def move_cell(filepath, source_index, target_index, *, backup=True):
+def move_cell(filepath, source_index, target_index):
     """Move a cell before target index."""
     nb = _load(filepath)
     _validate_index(nb, source_index)
@@ -294,7 +279,7 @@ def move_cell(filepath, source_index, target_index, *, backup=True):
     if target_index > source_index:
         target_index -= 1
     nb.cells.insert(target_index, cell)
-    _mutating_save(nb, filepath, backup)
+    _save(nb, filepath)
     print(f"OK: Moved cell {source_index} to {target_index}.")
 
 
@@ -311,7 +296,7 @@ Token-efficient inspection:
   read    <notebook>                         Show all cells with truncation
   check   <notebook>                         Validate notebook schema
 
-Mutation commands create timestamped .bak files:
+Mutation commands:
   edit    <notebook> <index> <content_file>  Replace a cell's source
   add     <notebook> <content_file> [type]   Append cell (type: code|markdown|raw)
   insert  <notebook> <index> <file> [type]   Insert cell at position

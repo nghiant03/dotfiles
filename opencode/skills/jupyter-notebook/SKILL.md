@@ -57,7 +57,7 @@ python $MGR read <notebook>
 ## Editing Cells
 
 Always inspect the target cell first with `show` or `range` so the cell index is correct.
-Mutation commands automatically create a timestamped `.bak-*` backup next to the notebook and clear stale outputs when appropriate.
+Mutation commands clear stale outputs when appropriate.
 
 ### Replace an Existing Cell
 
