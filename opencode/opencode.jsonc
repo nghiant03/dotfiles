@@ -21,6 +21,8 @@
   "default_agent": "build",
   "lsp": true,
   "provider": {
-    "openai": {}
+    "openai": {},
+    // Detected copilot authentication; opencode-quota added this global provider declaration.
+    "copilot": {}
   }
 }

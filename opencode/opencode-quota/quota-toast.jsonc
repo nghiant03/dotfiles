@@ -4,13 +4,13 @@
 
   "enabledProviders": "auto",
 
-  "tuiCommandDisplay": "inline",
+  "tuiCommandDisplay": "dialog",
 
   "tuiSidebarPanel": {
     "enabled": true
   },
 
-  "enableToast": false,
+  "enableToast": true,
   "tuiCompactStatus": {
     "enabled": false
   },
@@ -19,6 +19,8 @@
     "enabled": true,
     "home": true
   },
+
+	"showSessionTokens": false,
 
   // Charm Hyper credits: GET https://hyper.charm.land/v1/credits
   "quotaProviders": [
