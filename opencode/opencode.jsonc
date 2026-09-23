@@ -1,13 +1,14 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "oh-my-opencode-slim",
+    "oh-my-opencode-slim@2.2.24",
     "@slkiser/opencode-quota",
     "@mohak34/opencode-notifier@latest"
   ],
   "skills": {
     "paths": [
-      "~/.config/opencode/skills"
+      "~/.config/opencode/skills",
+      "~/.config/skills"
     ]
   },
   "agent": {
