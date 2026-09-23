@@ -61,12 +61,10 @@ Mutation commands clear stale outputs when appropriate.
 
 ### Replace an Existing Cell
 
-1. Use `write` to create a temporary content file.
-2. Apply the replacement.
-3. Run `check`, then inspect the changed cell.
+Pass the replacement source as a quoted argument. Run `check`, then inspect the changed cell.
 
 ```bash
-python $MGR edit <notebook> <cell_index> <content_file>
+python $MGR edit <notebook> <cell_index> '<new source text>'
 python $MGR check <notebook>
 python $MGR show <notebook> <cell_index>
 ```
@@ -75,7 +73,7 @@ python $MGR show <notebook> <cell_index>
 
 Defaults to `code`; allowed types are `code`, `markdown`, and `raw`.
 ```bash
-python $MGR add <notebook> <content_file> [code|markdown|raw]
+python $MGR add <notebook> '<new source text>' [code|markdown|raw]
 python $MGR check <notebook>
 ```
 
@@ -83,9 +81,11 @@ python $MGR check <notebook>
 
 Inserts before the given index. Existing cells shift down.
 ```bash
-python $MGR insert <notebook> <index> <content_file> [code|markdown|raw]
+python $MGR insert <notebook> <index> '<new source text>' [code|markdown|raw]
 python $MGR check <notebook>
 ```
+
+Quote source text as one shell argument. For multiline text, use a quoted multiline argument or shell ANSI-C quoting (for example, `$'first line\nsecond line'`). Choose quotes that preserve any `$`, backticks, or quote characters in the source.
 
 ### Delete a Cell
 
@@ -135,5 +135,5 @@ python $MGR move <notebook> <source_index> <target_index>
 - Use `search`, `show`, or `range` for targeted context instead of `read` whenever possible.
 - Re-run `summary` after `insert`, `delete`, or `move` because indices shift.
 - Run `check` after every mutation.
-- Prefer creating temp content files with the `write` tool; avoid shell heredocs for large or complex content.
+- Pass cell source directly as a quoted argument; no content file is needed.
 - Do not execute notebooks unless the user explicitly asks and the project environment is safe.

@@ -57,15 +57,6 @@ def _validate_type(cell_type):
     return cell_type
 
 
-def _read_content(path):
-    """Read temp-file content, exit on failure."""
-    if not os.path.exists(path):
-        print(f"Error: Content file '{path}' not found.")
-        sys.exit(1)
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
-
-
 def _make_cell(source, cell_type="code"):
     cell_type = _validate_type(cell_type)
     if cell_type == "markdown":
@@ -194,13 +185,11 @@ def check_notebook(filepath):
     print(f"OK: Notebook is valid ({len(nb.cells)} cell(s)).")
 
 
-def edit_cell(filepath, index, content_path):
+def edit_cell(filepath, index, source):
     """Replace a cell's source and clear its outputs."""
     nb = _load(filepath)
     _validate_index(nb, index)
-    new_source = _read_content(content_path)
-
-    nb.cells[index].source = new_source
+    nb.cells[index].source = source
     if "outputs" in nb.cells[index]:
         nb.cells[index].outputs = []
     if "execution_count" in nb.cells[index]:
@@ -210,20 +199,18 @@ def edit_cell(filepath, index, content_path):
     print(f"OK: Cell {index} updated.")
 
 
-def add_cell(filepath, content_path, cell_type="code"):
+def add_cell(filepath, source, cell_type="code"):
     """Append a new cell to the end of the notebook."""
     nb = _load(filepath)
-    source = _read_content(content_path)
     nb.cells.append(_make_cell(source, cell_type))
     _save(nb, filepath)
     print(f"OK: Added {cell_type} cell at index {len(nb.cells) - 1}.")
 
 
-def insert_cell(filepath, index, content_path, cell_type="code"):
+def insert_cell(filepath, index, source, cell_type="code"):
     """Insert a new cell at a specific position."""
     nb = _load(filepath)
     _validate_index(nb, index, allow_append=True)
-    source = _read_content(content_path)
     nb.cells.insert(index, _make_cell(source, cell_type))
     _save(nb, filepath)
     print(f"OK: Inserted {cell_type} cell at index {index}.")
@@ -297,9 +284,9 @@ Token-efficient inspection:
   check   <notebook>                         Validate notebook schema
 
 Mutation commands:
-  edit    <notebook> <index> <content_file>  Replace a cell's source
-  add     <notebook> <content_file> [type]   Append cell (type: code|markdown|raw)
-  insert  <notebook> <index> <file> [type]   Insert cell at position
+  edit    <notebook> <index> <text>          Replace a cell's source
+  add     <notebook> <text> [type]           Append cell (type: code|markdown|raw)
+  insert  <notebook> <index> <text> [type]   Insert cell at position
   delete  <notebook> <index>                 Remove a cell
   clear   <notebook> [index]                 Clear outputs in one or all code cells
   type    <notebook> <index> <type>          Change cell type
