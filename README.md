@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal configuration files managed with git.
+Personal Arch Linux configuration files managed with git.
 
 ## Structure
 
@@ -10,28 +10,22 @@ Personal configuration files managed with git.
 ├── backintime/
 │   ├── config                  # User Back In Time profile
 │   └── root-config             # /root/.config/backintime/config content
-├── conky/
-│   └── conky.conf              # Conky system monitor config
-├── crush/
-│   ├── crush.json              # Crush AI assistant config
-│   └── skills/
-│       ├── jupyter/            # Jupyter notebook skill
-│       └── ui-ux-pro-max/      # UI/UX design skill
+├── conky/                      # Conky system monitor config and scripts
+├── crush/                      # Crush config
 ├── git/
-│   ├── config                  # Git user & settings
-│   └── ignore                  # Global gitignore
-├── kitty/
-│   ├── current-theme.conf      # Active Kitty theme
-│   ├── kitty.conf              # Kitty terminal config
-│   └── kitty.conf.bak          # Kitty config backup
+│   └── config                  # Git user & settings
+├── kitty/                      # Kitty terminal config and theme
+├── opencode/                   # OpenCode config
 ├── packages/
-│   ├── aur.txt                 # Explicit AUR/foreign packages
+│   ├── aur.txt                 # Explicit foreign/AUR packages
 │   ├── explicit.txt            # All explicit packages
 │   └── native.txt              # Explicit repo packages
 ├── scripts/
 │   ├── bootstrap.sh            # Restore packages/configs/system zsh
 │   ├── export-packages.sh      # Refresh package manifests
-│   └── install-packages.sh     # Install package manifests with yay
+│   ├── install-package-export-hook.sh # Pacman post-transaction export hook
+│   └── install-packages.sh     # Install package manifests with an AUR helper
+├── skills/                     # Shared skills for Crush and OpenCode
 ├── speech-dispatcher/
 │   ├── modules/piper.conf      # Piper TTS module config
 │   └── speechd.conf            # Speech dispatcher config
@@ -44,6 +38,9 @@ Personal configuration files managed with git.
     ├── system-zprofile         # /etc/zsh/zprofile content
     └── system-zshenv           # /etc/zsh/zshenv content
 ```
+
+Other tracked files cover KDE/Plasma, fcitx5, GTK, fontconfig, and developer
+tools.
 
 ## Bootstrap
 
@@ -58,7 +55,6 @@ su -c '~/.config/scripts/bootstrap.sh system-zsh'
 su -c '~/.config/scripts/bootstrap.sh root-backintime'
 su -c '~/.config/scripts/bootstrap.sh package-hook'
 ```
-
 Refresh package manifests from the current machine:
 
 ```sh
@@ -70,12 +66,13 @@ Refresh package manifests from the current machine:
 | Component    | Key highlights                          |
 |--------------|-----------------------------------------|
 | **zsh**      | Powerlevel10k prompt, XDG directory compliance |
-| **KDE**      | Global shortcuts, keyboard options, KWin tiling/window rules, panel/taskbar layout |
-| **packages** | `yay`-installable repo and AUR manifests |
+| **KDE**      | Global shortcuts, keyboard options, KWin window rules, Plasma settings |
+| **packages** | Explicit native and foreign/AUR manifests; optional automatic export hook |
 | **kitty**    | Themed terminal emulator               |
-| **vim/nvim** | XDG-compliant editor configs           |
+| **vim**      | Editor config                          |
 | **conky**    | System monitor with custom layout      |
 | **backup**   | User and root Back In Time profiles    |
-| **git**      | Signing key, global ignores            |
-| **crush**    | AI assistant with Jupyter & UI/UX skills |
+| **git**      | Signing and editor settings            |
+| **OpenCode** | AI assistant with plugins, presets, and skills |
+| **crush**    | Shared AI skills linked from `skills/` |
 | **speech**   | Piper TTS via speech-dispatcher        |
