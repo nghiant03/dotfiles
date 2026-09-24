@@ -103,7 +103,6 @@ link_configs() {
     kwinrulesrc
     kxkbrc
     kcminputrc
-    kdeglobals
     kscreenlockerrc
     kactivitymanagerdrc
     kactivitymanagerd-statsrc
@@ -117,6 +116,12 @@ link_configs() {
   )
   for path in "${paths[@]}"; do
     [[ -e "$ROOT/$path" ]] && link_path "$ROOT/$path" "$HOME/.config/$path"
+  done
+  local config
+  for config in kdeglobals okularpartrc; do
+    if [[ ! -e "$HOME/.config/$config" && ! -L "$HOME/.config/$config" ]]; then
+      cp "$ROOT/$config.template" "$HOME/.config/$config"
+    fi
   done
 }
 

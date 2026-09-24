@@ -1,6 +1,8 @@
 __pycache__/
 
 # Volatile application state
+kdeglobals
+okularpartrc
 chromium/
 google-chrome/
 mozilla/
