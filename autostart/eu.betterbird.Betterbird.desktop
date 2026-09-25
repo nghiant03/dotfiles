@@ -3,7 +3,7 @@ Actions=ComposeMessage;OpenAddressBook;
 Categories=Network;Email;
 Comment=Send and receive mail with Betterbird
 Encoding=UTF-8
-Exec=betterbird %u
+Exec=env GDK_BACKEND=wayland LD_PRELOAD=/home/nghiant/.local/lib/betterbird-wayland.so betterbird %u
 GenericName=Mail Client
 Icon=betterbird
 Keywords=Email;E-mail;Newsgroup;Feed;RSS
