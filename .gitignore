@@ -6,10 +6,7 @@ okularpartrc
 chromium/
 google-chrome/
 mozilla/
-YouTube Music Desktop App/
-superProductivity/
 vesktop/sessionData/
-winboat/
 GIMP/
 KDE/
 **/Cache/
@@ -48,7 +45,6 @@ gh/hosts.yml
 kaggle/kaggle.json
 vastai/
 rclone/rclone.conf
-rustdesk/
 kdeconnect/*key*
 kdeconnect/*Key*
 kdeconnect/*.pem
