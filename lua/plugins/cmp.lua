@@ -4,7 +4,6 @@ return {
     version = "1.*",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      "L3MON4D3/LuaSnip",
       "kawre/neotab.nvim",
       "zbirenbaum/copilot.lua",
       "fang2hou/blink-copilot",
@@ -18,7 +17,6 @@ return {
           "fallback",
         },
       },
-      snippets = { preset = "luasnip" },
       completion = {
         accept = { auto_brackets = { enabled = true } },
         documentation = { auto_show = true },
@@ -39,10 +37,5 @@ return {
         keymap = { preset = "cmdline" },
       },
     },
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    build = "make install_jsregexp",
-  },
+  }
 }
