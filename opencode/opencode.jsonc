@@ -6,8 +6,19 @@
     "@mohak34/opencode-notifier@latest"
   ],
   "skills": [
-    "~/.config/opencode/skills"
+    "~/.config/opencode/skills",
+    "~/.config/skills"
   ],
+  "instructions": [
+    "~/.config/graphify/instructions.md"
+  ],
+  "mcp": {
+    "graphify": {
+      "type": "local",
+      "command": ["graphify-mcp"],
+      "enabled": true
+    }
+  },
   "agents": {
     "explore": {
       "disabled": true
