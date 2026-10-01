@@ -1,5 +1,8 @@
 #:schema https://docs.jj-vcs.dev/latest/config-schema.json
 
 [user]
-name = "nghiant03"
+name = "nghiant"
 email = "nghiant@mailbox.org"
+
+[ui]
+editor = "nvim"
