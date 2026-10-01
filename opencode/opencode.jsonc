@@ -1,27 +1,34 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [
+  "plugins": [
     "oh-my-opencode-slim",
     "@slkiser/opencode-quota",
     "@mohak34/opencode-notifier@latest"
   ],
-  "skills": {
-    "paths": [
-      "~/.config/opencode/skills",
-      "~/.config/skills"
-    ]
-  },
-  "agent": {
+  "skills": [
+    "~/.config/opencode/skills"
+  ],
+  "agents": {
     "explore": {
-      "disable": true
+      "disabled": true
     },
     "general": {
-      "disable": true
+      "disabled": true
     }
   },
+  "permissions": [
+    { "action": "skill", "resource": "clonedeps", "effect": "deny" },
+    { "action": "skill", "resource": "codemap", "effect": "deny" },
+    { "action": "skill", "resource": "deepwork", "effect": "deny" },
+    { "action": "skill", "resource": "oh-my-opencode-slim", "effect": "deny" },
+    { "action": "skill", "resource": "reflect", "effect": "deny" },
+    { "action": "skill", "resource": "simplify", "effect": "deny" },
+    { "action": "skill", "resource": "verification-planning", "effect": "deny" },
+    { "action": "skill", "resource": "worktrees", "effect": "deny" }
+  ],
   "default_agent": "build",
   "lsp": true,
-  "provider": {
+  "providers": {
     "openai": {},
     "copilot": {}
   }
