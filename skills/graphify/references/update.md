@@ -2,6 +2,10 @@
 
 Load this only when the user passed `--update` or `--cluster-only`. A first-time full build never reads this file.
 
+Numbered build steps referenced below now live in `references/build.md` (paths
+are relative to the skill root). Load those sections as needed, including the
+interpreter guard before Python snippets that use `.graphify_python`.
+
 ## For --update (incremental re-extraction)
 
 Use when you've added or modified files since the last run. Only re-extracts changed files - saves tokens and time.

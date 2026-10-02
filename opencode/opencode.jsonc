@@ -3,7 +3,8 @@
   "plugins": [
     "oh-my-opencode-slim",
     "@slkiser/opencode-quota",
-    "@mohak34/opencode-notifier@latest"
+    "@mohak34/opencode-notifier@latest",
+    "-graphify"
   ],
   "skills": [
     "~/.config/opencode/skills",
