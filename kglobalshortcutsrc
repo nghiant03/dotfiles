@@ -332,9 +332,8 @@ _launch=none
 [services][org.kde.touchpadshortcuts.desktop]
 ToggleTouchpad=Touchpad Toggle\tMeta+Ctrl+Zenkaku Hankaku
 
-[superproductivity]
-B15F486A17727F4E8D607B6011D308D3-Ctrl+Shift+X=Ctrl+Shift+X,Ctrl+Shift+X,superProductivity shortcut: Ctrl+Shift+X
-_k_friendly_name=Super Productivity
+[services][org.keepassxc.KeePassXC.desktop]
+_launch=Ctrl+K
 
 [wacomtablet]
 Map to fullscreen=Meta+Ctrl+F,Meta+Ctrl+F,Map to fullscreen
