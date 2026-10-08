@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+option skill-path "$HOME/.config/agents/skills"
+option global-context-path "$HOME/.config/graphify/instructions.md"
+
+mcp add graphify --command graphify-mcp
+
+option disable-skill ai-writing-detector
+option disable-skill avoid-ai-writing
+option disable-skill avoid-ai-writing-router
+option disable-skill false-positive-reviewer
+option disable-skill voice-preserving-rewriter
+option disable-skill preservation-verifier
+option disable-skill file-edit-in-place

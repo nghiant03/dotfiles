@@ -8,7 +8,7 @@
   ],
   "skills": [
     "~/.config/opencode/skills",
-    "~/.config/skills"
+    "~/.config/agents/skills"
   ],
   "instructions": [
     "~/.config/graphify/instructions.md"
