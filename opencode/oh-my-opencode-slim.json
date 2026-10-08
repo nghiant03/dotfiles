@@ -5,7 +5,9 @@
     "layout": "main-vertical",
     "main_pane_size": 60
   },
-  "preset": "openai",
+  "preset": "hyper",
+  "disabled_agents": [],
+  "image_routing": "auto",
   "presets": {
     "openai": {
       "orchestrator": {
@@ -109,7 +111,7 @@
     },
     "hyper": {
       "orchestrator": {
-        "model": "hyper/minimax-m3",
+        "model": "hyper/glm-5.3",
         "variant": "high",
         "skills": [
           "*"
@@ -148,7 +150,13 @@
         "mcps": []
       },
       "fixer": {
-        "model": "hyper/deepseek-v4.1-flash",
+        "model": "hyper/glm-5.3-flash",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "observer": {
+        "model": "hyper/glm-5.3-flash",
         "variant": "high",
         "skills": [],
         "mcps": []
