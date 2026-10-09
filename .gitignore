@@ -57,6 +57,7 @@ zsh/.zcompdump*
 
 # Large/runtime-managed package stores
 nvm/versions/
+nvim/.venv/
 luarocks/lib/
 luarocks/share/
 go/telemetry/
