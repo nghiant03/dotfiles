@@ -28,7 +28,7 @@ return {
         },
       })
 
-      vim.lsp.config("pyright", {
+      vim.lsp.config("pyrefly", {
         settings = {
           python = {
             analysis = {
@@ -175,7 +175,7 @@ return {
         },
       })
 
-      vim.lsp.enable({'lua_ls', 'pyright', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab', 'gopls', 'yamlls', 'ts_ls'})
+      vim.lsp.enable({'lua_ls', 'pyrefly', 'ruff', 'rust_analyzer', 'ltex_plus', 'texlab', 'gopls', 'yamlls', 'ts_ls'})
 
       require('lspkind').init({
         -- DEPRECATED (use mode instead): enables text annotations

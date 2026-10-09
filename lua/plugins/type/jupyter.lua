@@ -14,7 +14,7 @@ return {
       lsp = {
         auto_attach = true,
         servers = {
-          python = { "pyright" },
+          python = { "pyrefly" },
           javascript = { "ts_ls" },
           typescript = { "ts_ls" },
         },
