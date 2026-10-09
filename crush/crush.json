@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/charmbracelet/crush/main/schema.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "name": "gitnexus-augment",
+        "matcher": "^(bash|grep|glob)$",
+        "command": "/home/nghiant/.config/crush/hooks/gitnexus-pretooluse.sh",
+        "timeout": 15
+      }
+    ]
+  }
+}
