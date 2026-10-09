@@ -1,0 +1,12 @@
+# ~/.config/systemd/user/power-profile.service
+
+[Unit]
+Description=Adjust display mode based on AC power
+BindsTo=sys-subsystem-power_supply-devices-ACAD.device
+After=sys-subsystem-power_supply-devices-ACAD.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/power-profile
+ExecStop=/usr/bin/power-profile
