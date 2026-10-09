@@ -1,8 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [custom.jj]
-when = "jj-starship detect"
-shell = ["jj-starship", "--no-jj-prefix", "--no-git-prefix"]
+command = "jj-starship --no-jj-prefix --no-git-prefix"
+when = 'd=$PWD; while [ "$d" != / ]; do [ -d "$d/.jj" ] && exit 0; d=$(dirname "$d"); done; exit 1'
+format = '\[[$output](yellow)\]'
+
+[custom.git]
+command = "jj-starship --no-jj-prefix --no-git-prefix"
+when = 'd=$PWD; while [ "$d" != / ]; do [ -d "$d/.jj" ] && exit 1; [ -e "$d/.git" ] && exit 0; d=$(dirname "$d"); done; exit 1'
 format = '\[[$output](yellow)\]'
 
 [git_branch]
