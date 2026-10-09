@@ -1,0 +1,45 @@
+return {
+  {
+    "nghiant03/jove.nvim",
+    lazy = false,
+    priority = 100,
+    opts = {
+      auto_kernel = true,
+      auto_import_outputs = true,
+      auto_export_outputs = true,
+      cell_motions = false,
+      ui = {
+        border_hl = { fg = "#ff9e64" },
+      },
+      lsp = {
+        auto_attach = true,
+        servers = {
+          python = { "pyrefly" },
+          javascript = { "ts_ls" },
+          typescript = { "ts_ls" },
+        },
+      },
+    },
+    keys = {
+      { "<localleader>jc", "<Plug>(JoveRunCell)", desc = "Jove: Run Cell" },
+      { "<localleader>jx", "<Plug>(JoveRunCellAndAdvance)", desc = "Jove: Run Cell and Advance" },
+      { "<localleader>jv", "<Plug>(JoveRunSelection)", mode = "x", desc = "Jove: Run Selection" },
+      { "]h", "<Plug>(JoveNextCell)", desc = "Jove: Next Cell" },
+      { "[h", "<Plug>(JovePrevCell)", desc = "Jove: Previous Cell" },
+      { "<localleader>jf", "<Plug>(JoveToggleFollowRunning)", desc = "Jove: Follow Running Cell" },
+      { "<localleader>jk", "<Plug>(JoveRunAbove)", desc = "Jove: Run Above" },
+      { "<localleader>ja", "<Plug>(JoveRunAll)", desc = "Jove: Run All" },
+      { "<localleader>ji", "<cmd>Jove init-kernel<cr>", desc = "Jove: Init Kernel" },
+      { "<localleader>js", "<cmd>Jove select-kernel<cr>", desc = "Jove: Select Kernel" },
+      { "<localleader>jC", "<cmd>Jove interrupt<cr>", desc = "Jove: Interrupt" },
+      { "<localleader>jr", "<cmd>Jove restart-kernel<cr>", desc = "Jove: Restart Kernel" },
+      { "<localleader>jq", "<cmd>Jove shutdown-kernel<cr>", desc = "Jove: Shutdown Kernel" },
+      { "<localleader>jo", "<cmd>Jove toggle-output<cr>", desc = "Jove: Toggle Output" },
+      { "<localleader>jO", "<cmd>Jove open-output<cr>", desc = "Jove: Open Output Float" },
+      { "<localleader>jd", "<cmd>Jove clear-output<cr>", desc = "Jove: Clear Output" },
+      { "<localleader>jD", "<cmd>Jove clear-outputs<cr>", desc = "Jove: Clear All Outputs" },
+      { "<localleader>jR", "<cmd>Jove reload<cr>", desc = "Jove: Reload Notebook" },
+      { "<localleader>jb", "<cmd>Jove sidebar<cr>", desc = "Jove: Toggle Sidebar" },
+    },
+  },
+}
