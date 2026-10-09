@@ -1,14 +1,43 @@
 __pycache__/
 
 # Volatile application state
+*.jupyterlab-workspace
 kdeglobals
 okularpartrc
+user-dirs.locale
+fcitx5/conf/cached_layouts
+akonadi/
 chromium/
 google-chrome/
 mozilla/
 vesktop/sessionData/
-GIMP/
+dconf/
+fcitx/
 KDE/
+jj/repos/
+ibus/
+session/
+htop/
+.crush/
+glib-2.0/settings/
+evolution/mail/
+docker/buildx/
+gcloud/gce
+gcloud/logs/
+gcloud/.last_survey_prompt.yaml
+gcloud/.last_update_check.json
+gcloud/config_sentinel
+github-copilot/versions.json
+github-copilot/github/
+opencode/opencode-notifier-state.json
+opencode/.oh-my-opencode-slim/skills-manifest.json
+menus/applications-merged/xdg-desktop-menu-dummy.menu
+jupyter/serverconfig/*
+thunderbird/*
+!thunderbird/installs.ini
+!thunderbird/profiles.ini
+zotero/zotero/*
+!zotero/zotero/profiles.ini
 **/Cache/
 **/Code Cache/
 **/GPUCache/
@@ -41,23 +70,25 @@ KDE/
 
 # Secrets and machine identities
 git/credentials
+git/.secret
 gh/hosts.yml
-kaggle/kaggle.json
+litellm/chatgpt/
 vastai/
 rclone/rclone.conf
+gcloud/legacy_credentials/
 kdeconnect/*key*
 kdeconnect/*Key*
 kdeconnect/*.pem
 github-copilot/auth.db*
 sops/age/
 pulse/cookie
+freerdp/
+tailscale/
+opencode/service.json
 
 # Generated zsh completion caches
 zsh/.zcompdump*
 
 # Large/runtime-managed package stores
-nvm/versions/
 nvim/.venv/
-luarocks/lib/
-luarocks/share/
 go/telemetry/

@@ -6,16 +6,23 @@ Personal Arch Linux configuration files managed with git.
 
 ```
 .
+├── agents/
+│   └── skills/                 # Skills for coding harness
 ├── autostart/                  # XDG/KDE startup applications
 ├── backintime/
 │   ├── config                  # User Back In Time profile
 │   └── root-config             # /root/.config/backintime/config content
 ├── conky/                      # Conky system monitor config and scripts
 ├── crush/                      # Crush config
+├── fcitx5/                     # Input method 
 ├── git/
 │   └── config                  # Git user & settings
+├── jj/config.toml              # Jujutsu VCS settings
+├── jupyter/                    # JupyterLab config and user settings
+├── keepassxc/keepassxc.ini     # Password manager settings
 ├── kitty/                      # Kitty terminal config and theme
-├── opencode/                   # OpenCode config
+├── nvim/                       # Neovim config
+├── opencode/                   # OpenCode config and skills
 ├── packages/
 │   ├── aur.txt                 # Explicit foreign/AUR packages
 │   ├── explicit.txt            # All explicit packages
@@ -25,22 +32,22 @@ Personal Arch Linux configuration files managed with git.
 │   ├── export-packages.sh      # Refresh package manifests
 │   ├── install-package-export-hook.sh # Pacman post-transaction export hook
 │   └── install-packages.sh     # Install package manifests with an AUR helper
-├── skills/                     # Shared skills for Crush and OpenCode
-├── speech-dispatcher/
-│   ├── modules/piper.conf      # Piper TTS module config
-│   └── speechd.conf            # Speech dispatcher config
+├── starship.toml               # Shell prompt
+├── systemd/user/               # User units (ssh-agent, power-profile)
+├── user-dirs.dirs              # XDG user directories
+├── vesktop/                    # Vesktop (Discord) settings and quick CSS
 ├── vim/
 │   └── vimrc                   # Vim editor config
+├── xsettingsd/xsettingsd.conf  # GTK settings without full GNOME stack
 └── zsh/
-    ├── .p10k.zsh               # Powerlevel10k theme config
     ├── .zshenv                 # Zsh environment variables
     ├── .zshrc                  # Zsh shell config
     ├── system-zprofile         # /etc/zsh/zprofile content
     └── system-zshenv           # /etc/zsh/zshenv content
 ```
 
-Other tracked files cover KDE/Plasma, fcitx5, GTK, fontconfig, and developer
-tools.
+Other tracked files cover the KDE/Plasma rc files (`kwinrc`, `dolphinrc`,
+`konsolerc`, `kdedefaults/`, ...) and GTK 3/4 theme assets.
 
 ## Bootstrap
 
@@ -65,7 +72,7 @@ Refresh package manifests from the current machine:
 
 | Component    | Key highlights                          |
 |--------------|-----------------------------------------|
-| **zsh**      | Powerlevel10k prompt, XDG directory compliance |
+| **zsh**      | Starship prompt, XDG directory compliance |
 | **KDE**      | Global shortcuts, keyboard options, KWin window rules, Plasma settings |
 | **packages** | Explicit native and foreign/AUR manifests; optional automatic export hook |
 | **kitty**    | Themed terminal emulator               |
@@ -74,5 +81,6 @@ Refresh package manifests from the current machine:
 | **backup**   | User and root Back In Time profiles    |
 | **git**      | Signing and editor settings            |
 | **OpenCode** | AI assistant with plugins, presets, and skills |
-| **crush**    | Shared AI skills linked from `skills/` |
+| **crush**    | AI assistant config with hooks; skills in `agents/skills/` |
+| **nvim**     | LazyVim-based editor config with plugin set |
 | **speech**   | Piper TTS via speech-dispatcher        |
