@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 option skill-path "$HOME/.config/agents/skills"
-option global-context-path "$HOME/.config/graphify/instructions.md"
 
-mcp add graphify --command graphify-mcp
+mcp add gitnexus --command bash --args "$HOME/.local/bin/gitnexus" --args mcp
 
 option disable-skill ai-writing-detector
 option disable-skill avoid-ai-writing

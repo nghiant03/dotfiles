@@ -3,20 +3,18 @@
   "plugins": [
     "oh-my-opencode-slim",
     "@slkiser/opencode-quota",
-    "@mohak34/opencode-notifier@latest",
-    "-graphify"
+    "@mohak34/opencode-notifier@latest"
   ],
   "skills": [
     "~/.config/opencode/skills",
     "~/.config/agents/skills"
   ],
-  "instructions": [
-    "~/.config/graphify/instructions.md"
-  ],
+  // gitnexus MCP: bash-explicit so the HOME-redirecting wrapper at
+  // ~/.local/bin/gitnexus always runs (regardless of shebang sniffing).
   "mcp": {
-    "graphify": {
+    "gitnexus": {
       "type": "local",
-      "command": ["graphify-mcp"],
+      "command": ["bash", "/home/nghiant/.local/bin/gitnexus", "mcp"],
       "enabled": true
     }
   },
