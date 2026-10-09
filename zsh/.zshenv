@@ -3,6 +3,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export CODEX_HOME="$XDG_DATA_HOME/codex"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"

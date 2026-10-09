@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias adb="HOME=$XDG_DATA_HOME/android adb"
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
