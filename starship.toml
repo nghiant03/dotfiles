@@ -9,7 +9,7 @@ description = "The current Jujutsu repository status"
 [custom.git]
 command = "jj-starship --no-jj-prefix --no-git-prefix"
 when = 'd=$PWD; while [ "$d" != / ]; do [ -d "$d/.jj" ] && exit 1; [ -e "$d/.git" ] && exit 0; d=$(dirname "$d"); done; exit 1'
-format = '\[[$output](yellow)\]'
+format = '\[[$output](yellow)\]'
 description = "The current Git repository status"
 
 [git_branch]
@@ -107,6 +107,7 @@ format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
 format = '\[[$state ($progress_current/$progress_total)]($style)\]'
 
 [git_status]
+disabled = true
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [gleam]
