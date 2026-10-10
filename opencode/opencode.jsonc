@@ -29,12 +29,6 @@
         { "action": "subagent", "resource": "fixer", "effect": "allow" },
         { "action": "subagent", "resource": "observer", "effect": "allow" }
       ]
-    },
-    "explore": {
-      "disabled": true
-    },
-    "general": {
-      "disabled": true
     }
   },
   "permissions": [
