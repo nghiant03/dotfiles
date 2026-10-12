@@ -60,19 +60,26 @@ install_package_hook() {
   "$ROOT/scripts/install-package-export-hook.sh" "$target_user" "$ROOT"
 }
 
+require_root() {
+  if [[ $EUID -eq 0 ]]; then
+    return 0
+  fi
+  if ! command -v sudo >/dev/null 2>&1; then
+    echo "sudo is required, or run as: su -c \"$BASH_SOURCE $1\"" >&2
+    exit 1
+  fi
+  exec sudo "$BASH_SOURCE" "$1"
+}
+
 install_root_backintime() {
+  require_root root-backintime
   local source="$ROOT/backintime/root-config"
   if [[ ! -e "$source" ]]; then
     echo "root Back In Time config is missing at $source" >&2
     exit 1
   fi
-  if [[ $EUID -eq 0 ]]; then
-    mkdir -p /root/.config/backintime
-    ln -sfn "$source" /root/.config/backintime/config
-  else
-    echo "Run as root to link /root/.config/backintime/config" >&2
-    exit 1
-  fi
+  mkdir -p /root/.config/backintime
+  ln -sfn "$source" /root/.config/backintime/config
 }
 
 link_configs() {
@@ -132,13 +139,10 @@ install_system_zsh() {
     echo "system zsh files are missing" >&2
     exit 1
   fi
-  if [[ $EUID -eq 0 ]]; then
-    mkdir -p /etc/zsh
-    ln -sfn "$zshenv_source" /etc/zsh/zshenv
-    ln -sfn "$zprofile_source" /etc/zsh/zprofile
-  else
-    echo "Run as root to link /etc/zsh/zshenv and /etc/zsh/zprofile" >&2
-  fi
+  require_root system-zsh
+  mkdir -p /etc/zsh
+  ln -sfn "$zshenv_source" /etc/zsh/zshenv
+  ln -sfn "$zprofile_source" /etc/zsh/zprofile
 }
 
 usage() {
@@ -149,8 +153,9 @@ Run after creating the user in Arch install:
   scripts/bootstrap.sh aur-helper
   scripts/bootstrap.sh packages
   scripts/bootstrap.sh link
-  su -c 'scripts/bootstrap.sh system-zsh'
-  su -c 'scripts/bootstrap.sh root-backintime'
+  scripts/bootstrap.sh system-zsh
+  scripts/bootstrap.sh root-backintime
+
 USAGE
 }
 

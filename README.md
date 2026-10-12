@@ -58,9 +58,9 @@ git clone <dotfiles-repo> ~/.config
 ~/.config/scripts/bootstrap.sh aur-helper
 ~/.config/scripts/bootstrap.sh packages
 ~/.config/scripts/bootstrap.sh link
-su -c '~/.config/scripts/bootstrap.sh system-zsh'
-su -c '~/.config/scripts/bootstrap.sh root-backintime'
-su -c '~/.config/scripts/bootstrap.sh package-hook'
+~/.config/scripts/bootstrap.sh system-zsh
+~/.config/scripts/bootstrap.sh root-backintime
+~/.config/scripts/bootstrap.sh package-hook
 ```
 Refresh package manifests from the current machine:
 
