@@ -1,3 +1,4 @@
+backintime
 betterbird-bin
 bibtex-tidy
 chatgpt-desktop-bin
@@ -10,9 +11,11 @@ google-chrome
 google-cloud-cli
 ltex-ls-plus-bin
 onlyoffice-bin
+teamviewer
 tex-fmt
-vesktop
+universal-android-debloater
+vesktop-bin
 xdg-ninja
 yay
 yaycache
-zotero-bin
+zotero-git

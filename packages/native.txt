@@ -1,6 +1,7 @@
 accessibility-inspector
 age
 alsa-utils
+android-tools
 ark
 aws-cli
 base
@@ -88,6 +89,7 @@ kdevelop-python
 kdf
 kdialog
 keditbookmarks
+keepassxc
 keysmith
 kfind
 kgeography
@@ -145,6 +147,8 @@ lua-language-server
 marble
 markdownpart
 massif-visualizer
+mermaid-cli
+mosquitto
 neovim
 ninja
 nodejs
@@ -182,7 +186,6 @@ plasma-desktop
 plasma-meta
 powertop
 poxml
-pyright
 python-pip
 python-pylatexenc
 python-websockets
@@ -192,7 +195,6 @@ ripgrep
 rocs
 rsync
 ruby
-ruff
 rust-analyzer
 rustup
 sbctl
@@ -204,8 +206,10 @@ sops
 spectacle
 speech-dispatcher
 sstp-client
+starship
 sudo
 svgpart
+syncthing
 tailscale
 tcpdump
 texlab
@@ -297,6 +301,7 @@ typescript-language-server
 umbrello
 unrar
 unzip
+usbip
 uv
 vim
 wayland

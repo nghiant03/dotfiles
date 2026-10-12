@@ -1,8 +1,10 @@
 accessibility-inspector
 age
 alsa-utils
+android-tools
 ark
 aws-cli
+backintime
 base
 base-devel
 betterbird-bin
@@ -98,6 +100,7 @@ kdevelop-python
 kdf
 kdialog
 keditbookmarks
+keepassxc
 keysmith
 kfind
 kgeography
@@ -156,6 +159,8 @@ lua-language-server
 marble
 markdownpart
 massif-visualizer
+mermaid-cli
+mosquitto
 neovim
 ninja
 nodejs
@@ -194,7 +199,6 @@ plasma-desktop
 plasma-meta
 powertop
 poxml
-pyright
 python-pip
 python-pylatexenc
 python-websockets
@@ -204,7 +208,6 @@ ripgrep
 rocs
 rsync
 ruby
-ruff
 rust-analyzer
 rustup
 sbctl
@@ -216,10 +219,13 @@ sops
 spectacle
 speech-dispatcher
 sstp-client
+starship
 sudo
 svgpart
+syncthing
 tailscale
 tcpdump
+teamviewer
 tex-fmt
 texlab
 texlive-basic
@@ -308,10 +314,12 @@ ttf-victor-mono-nerd
 ttf-zed-mono-nerd
 typescript-language-server
 umbrello
+universal-android-debloater
 unrar
 unzip
+usbip
 uv
-vesktop
+vesktop-bin
 vim
 wayland
 wget
@@ -323,6 +331,6 @@ yaycache
 zathura
 zathura-pdf-mupdf
 zip
-zotero-bin
+zotero-git
 zsh
 zsh-completions
