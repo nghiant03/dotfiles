@@ -9,7 +9,15 @@ return {
 	},
 	{
 		"folke/sidekick.nvim",
-		opts = {},
+		opts = {
+			cli = {
+				tools = {
+					crush = {
+						env = { CRUSH_CLIENT_SERVER = "1" },
+					},
+				},
+			},
+		},
 		keys = {
 			{
 				"<Tab>",
