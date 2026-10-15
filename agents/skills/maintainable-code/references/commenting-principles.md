@@ -2,100 +2,17 @@
 
 Write comments that save readers from reconstructing a contract or design decision. Judge usefulness from the perspective of someone encountering the code for the first time. These rules apply across languages; use the repository's doc-comment syntax and conventions.
 
-## When to comment
+## Comment decision rules
 
-| Situation | Useful action |
-|---|---|
-| A caller cannot learn the contract from the declaration | Document behavior, input constraints, results, and relevant side effects or failures at the interface. |
-| A value has meaning its type or name does not express | Explain units, valid ranges, inclusive/exclusive bounds, sentinel values, ownership, or lifetime where declared. |
-| An implementation choice looks arbitrary or invites an incorrect simplification | Explain the constraint, rationale, or failure that the choice prevents beside the affected code. |
-| Several steps implement a non-obvious algorithm or phase | Give a short high-level explanation of the goal or invariant before the block. Avoid translating each statement into prose. |
-| A rule spans modules | Keep one authoritative explanation and reference it from the affected locations. Use an existing design note if it documents the rule; otherwise document the rule once at its owning interface or in a design note. |
-| A comment merely repeats the name, type, or next statement | Omit it, or remove it after checking that no useful information is lost. |
-| Prose compensates for a misleading name or unnecessarily tangled logic | Consider a clearer name or a small refactor first. Keep any contract or rationale the improved code still cannot convey. |
-
-“Comment why, not what” is too narrow. An interface needs to describe what it promises; a block comment can explain an algorithm's overall purpose. The waste is repeating code at the same level of detail.
-
-## How to write the comment
-
-### Interface comments: help callers use the code
-
-Start with a short statement of the behavior or abstraction. Add only details callers need to use it correctly without opening the implementation. These may include parameter meaning, preconditions, return semantics, boundary cases, mutation, I/O, failures, and ownership or concurrency obligations. This is a relevance checklist, not a requirement to expand every item into prose. Do not repeat information already clear from the declaration or fill empty template sections.
-
-Keep internal mechanics out unless callers depend on them as part of the contract. A signature can show an integer parameter without telling the reader whether it counts bytes, accepts zero, or includes the end position.
-
-### Implementation comments: help maintainers change the code
-
-Place the explanation at the narrowest relevant scope. State the reason for a surprising choice, the invariant a block preserves, or the dependency a maintainer must keep in mind. Use precise conditions instead of vague labels such as “handle edge cases” or “performance optimization.”
-
-The following examples are illustrative, not inferred project facts:
-
-```text
-Redundant: Increment the retry count.
-Useful:   Reuse the request ID on retries so the receiver can reject duplicates.
-
-Vague:    Validate the range.
-Contract: start is inclusive; end is exclusive. Equal bounds return an empty result.
-
-Vague:    Do not move this call.
-Useful:   Publish only after commit; subscribers may read the record immediately.
-```
-
-Include a short local explanation even when linking to an issue or design note. The reference supplies detail; the comment should still identify the relevant constraint.
-
-### Linear, economical prose
-
-Comments compete with code for the reader's attention. State the main behavior or reason directly, with one coherent claim per sentence. Use concrete subjects and verbs rather than an introduction such as “Note that,” “It is important to remember,” or “This function is responsible for.”
-
-- Avoid parenthetical prose by default. Integrate essential information into the sentence, give it a separate sentence, or delete an unnecessary aside. Do not merely replace parentheses with dashes, commas, or semicolons; remove the interruption itself.
-- Preserve parentheses needed for code examples, formulas, citations, and tool syntax. A short parenthetical term can be useful when it genuinely clarifies the text. Do not impose a punctuation ban or alter executable code to satisfy this prose guidance.
-- Split independent claims into separate sentences. Keep a semicolon only when it clarifies a close relationship between the claims. Do not chain conditions, caveats, or unrelated instructions with `;`. Preserve semicolons in code examples, literal text, and tool syntax.
-- Use colons to introduce a list, example, or explanation directly tied to the preceding phrase. Avoid unnecessary labels such as “Note:” or “Explanation:” when a direct sentence is clearer. Preserve colons in code examples, literal text, and tool directives.
-- State precise conditions instead of accumulating qualifications. Keep a caveat when it changes how the reader must call or modify the code, not merely to make a sentence sound cautious or comprehensive.
-- Do not narrate statements, explain ordinary language idioms to experienced maintainers, or paraphrase the signature. A comment should supply information the intended reader would otherwise have to reconstruct.
-- Keep local comments local. Move broad workflow explanations to authoritative documentation and retain the relevant constraint and reference beside the code. Leave obsolete milestone history and change narratives to version control unless they explain a current restriction.
-- Remove repeated explanations across module headers, helpers, and callers. When an interface needs a local warning to prevent misuse, retain that warning and reference the authoritative explanation instead of copying it.
-
-The examples below illustrate editing choices, not project facts:
-
-```text
-Before: Count distinct meal slots (breakfast, lunch, and dinner), not dishes
-        (multiple dishes in the same slot still count as one).
-After:  Count each meal slot once, regardless of how many dishes it contains.
-
-Before: Return a copy (the input is not mutated), or None (if no match exists).
-After:  Return a copy of the match, or None if no match exists. Leave the input unchanged.
-
-Before: It is important to note that this function performs a revision check
-        (even when the optional client token is omitted) to prevent stale writes.
-After:  Reject stale writes even when the client omits the revision token.
-
-Before: Persist the record (using the database transaction), then publish it
-        (after the commit has completed), so subscribers can read it safely.
-After:  Publish only after commit so subscribers can read the persisted record.
-
-Before: Return an empty list if no records match; leave the cache unchanged;
-        callers must retry transient failures.
-After:  Return an empty list if no records match. Leave the cache unchanged.
-        Callers must retry transient failures.
-```
-
-The third example assumes the input snapshot and durable revision comparison are documented at their authoritative interface. Do not shorten a comment by erasing a distinction its reader needs.
-
-## Write and maintain comments with the code
-
-For a new or substantially changed interface, draft its contract before implementing the body. If the description is difficult to make clear, reconsider the responsibilities or interface. Revise the draft as the design develops.
-
-When changing behavior, review nearby comments and the authoritative contract in the same change. If code and prose disagree, investigate the intended behavior before changing either. Preserve useful rationale through refactoring and move it with the code it explains. Reference the authoritative explanation rather than copying it; retain a short local constraint when readers need it to avoid misuse.
-
-For agent-authored comments, verify claims against code, tests, specifications, or recorded decisions. Do not invent historical reasons, issue references, performance guarantees, or thread-safety promises. Report an unknown when the evidence does not establish it. Preserve required notices and tool directives; they may have purposes beyond explaining the code.
-
-Review in two passes:
-
-1. **Correctness and contract coverage:** verify each claim and identify missing information needed to use or change the code safely.
-2. **Clarity and subtraction:** read the comment as prose. Remove repetition, unnecessary asides, mechanical narration, and detail that belongs elsewhere. Check the result against the first pass so brevity does not erase units, bounds, ownership, failures, invariants, or rationale.
-
-A technically correct paragraph can still be a poor comment. Report readability problems as findings in their own right; do not limit an audit to stale or false claims.
+| Rule | Trigger | Required action |
+|---|---|---|
+| C2 | A caller cannot learn the contract from the declaration | Document behavior, input constraints, results, and relevant side effects or failures at the interface. |
+| C2 | A value has meaning its type or name does not express | Explain units, valid ranges, inclusive/exclusive bounds, sentinel values, ownership, or lifetime where declared. |
+| C3 | An implementation choice invites an incorrect simplification | Explain the established constraint, rationale, or failure beside the affected code. |
+| C3 | Several steps implement a non-obvious algorithm or phase | State the goal or invariant before the block. Do not translate individual statements into prose. |
+| C4, C8 | A rule spans modules | Keep one authoritative explanation at its owning interface or design note. Retain local constraints and references where needed. |
+| C5 | A comment merely repeats the name, type, or next statement | Remove it only after confirming that no useful information is lost. |
+| C12 | Prose compensates for a misleading name or tangled logic | Inspect whether a clearer name or small refactor conveys the facts; preserve any remaining contract or rationale. |
 
 ## Concrete comment rules
 
@@ -111,10 +28,31 @@ Apply C1–C4 in the correctness/coverage pass, then C5–C8 to the same scope i
 | C6 — Interrupted or padded prose | Read each sentence in order. Flag introductions or asides that delay the main condition or force the reader to resume a suspended thought. | Replace “It is important to note that … (even when the token is omitted)” with “Reject stale writes even when the client omits the token.” | Parentheses convey a needed term, formula, citation, or code syntax. Punctuation alone is not a finding. |
 | C7 — Vague or overloaded claims | Identify the concrete condition and consequence in each sentence. Flag labels without that information or chains of unrelated obligations. | Replace “Handle edge cases” with the actual boundary behavior. Split “Return no matches; leave the cache unchanged; retry failures” into separate claims. | A colon introduces a related explanation, or a semicolon makes a close relationship clearer. Preserve literal text and tool syntax. |
 | C8 — Duplication and misplaced detail | Compare headers, helpers, callers, and documentation. Flag copied rationale that can drift, internal mechanics callers do not need, or obsolete change history. | Retain one authoritative explanation plus a short local warning/reference. Move broad workflow detail out of a local comment. | An implementation detail is part of the caller's contract, or history explains a current restriction. |
+| C9 — Contract-first writing | For a new or substantially changed interface, compare the draft description with caller needs before implementing the body. Flag an interface whose responsibilities cannot be described without exposing internal steps. | Start with a short behavior/abstraction statement. Add only needed parameter meaning, preconditions, results, boundaries, mutation, I/O, failures, ownership, or concurrency obligations. Reconsider the interface if the draft remains unclear; revise it as the design develops. | Types and the declaration already convey a detail. Do not fill empty template sections or demand prose for every trivial declaration. |
+| C10 — Preserve contracts through edits | Before shortening, renaming, refactoring, or changing behavior, compare the proposed result with the C1–C4 evidence record and authoritative contract. Flag lost units, bounds, sentinel meanings, ownership, lifetime, failures, invariants, rationale, or distinctions. | Preserve the needed facts in code or prose. Move rationale with its code and review nearby/authoritative comments in the same change. Resolve code/prose disagreements before changing either. | The replacement communicates every consequential fact to its intended reader. Preserve required notices and tool directives regardless of explanatory value. |
+| C11 — Direct conditions and sentences | Identify each sentence's subject, condition, and consequence. Flag padded openings, hidden essential qualifications, unnecessary labels, or unrelated obligations joined by punctuation. | State the main claim directly. Integrate or separate essential asides rather than exchanging parentheses for dashes. Split independent claims; keep caveats only when they affect use or modification. | A short clarifying term, formula, citation, or code/tool/literal syntax needs punctuation. Colons can introduce related lists/examples; semicolons can clarify closely related claims. Do not alter executable code or impose punctuation bans. |
+| C12 — Code clarity before compensating prose | Compare an explanation with the name, structure, and intended reader's knowledge. Flag prose that only compensates for a misleading name or tangled logic, or explains an ordinary idiom without a project-specific constraint. | Propose the smallest useful name/structure correction, then retain the contracts or rationale code still cannot convey. A local link must still state the relevant constraint. | Interface promises and high-level algorithm goals remain useful even when they describe what the code does. “Comment why, not what” does not justify deleting them. |
+| C13 — Semicolons `;` | Read prose joined by semicolons. Flag chains of independent conditions, caveats, or obligations that require the reader to track several claims in one sentence. | Split independent claims into sentences: “Return an empty list if no records match. Leave the cache unchanged. Callers must retry transient failures.” | A semicolon clarifies a close relationship between two claims. Preserve semicolons in code, literal text, and tool syntax; punctuation alone is not a defect. |
+| C14 — Parentheses `()` | Read the main sentence and each parenthetical aside. Flag essential conditions hidden in parentheses or interruptions that make the reader resume a suspended thought. | Integrate essential information, give it a separate sentence, or delete an unnecessary aside. Rewrite “Return a copy (the input is not mutated)” as “Return a copy. Leave the input unchanged.” Do not merely exchange parentheses for commas or dashes. | A short clarifying term, formula, citation, or code/tool/literal syntax needs parentheses. Preserve consequential facts under C10; do not impose a punctuation ban. |
+| C15 — Commas `,` | Read comma-delimited prose for stacked asides, suspended subject/verb connections, or independent claims joined only by a comma. Flag the specific ambiguity or rereading burden, not the comma count. | Remove unnecessary asides, integrate essential conditions directly, and split independent claims. Rewrite “The cache, after a successful commit, and only then, is invalidated” as “Invalidate the cache only after a successful commit.” | Commas separate list items, mark a needed grammatical boundary, or introduce a short condition without obscuring the main claim. Preserve code/tool/literal syntax; do not remove commas mechanically. |
 
-Before accepting any subtraction, compare the proposed text with the C1–C4 record. Preserve consequential units, bounds, ownership, failures, invariants, rationale, and distinctions. If a clearer name or small refactor replaces prose, check that it actually communicates those facts.
+### Application rules
 
-Comment counts, line ratios, parenthesis counts, and mandatory prose on every trivial operation do not establish compliance with these rules. They may identify candidates for inspection, not prove quality. Tests and builds do not verify prose readability. Review meaning in context.
+1. Apply C1–C4 before C5–C8 to the same scope. Include interfaces without comments in the contract pass. Record missing safe-use information and the facts later edits must preserve.
+2. Apply C9 when drafting interfaces, C10 before accepting any edit, and C11–C15 when writing or revising prose. Use C13 for `;`, C14 for `()`, and C15 for `,`. Report supported readability issues even when every behavioral claim is true.
+3. Verify agent-authored claims against implementation, tests, specifications, or recorded decisions. Report unsupported history, issue references, performance, or thread-safety promises as unknown; never invent evidence.
+4. Do not use comment counts, line ratios, punctuation counts, or passing builds as compliance evidence. Inspect meaning in context; tests do not verify prose readability.
+
+### Rule examples
+
+| Rule | Before | After, if supported by evidence |
+|---|---|---|
+| C3 | Do not move this call. | Publish only after commit so subscribers can read the persisted record. |
+| C5 | Increment the retry count. | Delete above an obvious increment unless it conveys an additional constraint. |
+| C6, C11 | Count distinct meal slots (breakfast, lunch, and dinner), not dishes (multiple dishes in the same slot still count as one). | Count each meal slot once, regardless of how many dishes it contains. |
+| C10 | Return a copy (the input is not mutated), or None (if no match exists). | Return a copy of the match, or None if no match exists. Leave the input unchanged. |
+| C11 | It is important to note that this function performs a revision check (even when the optional client token is omitted) to prevent stale writes. | Reject stale writes even when the client omits the revision token. Preserve the input-snapshot and durable-revision distinction at the authoritative interface. |
+| C7, C11 | Return an empty list if no records match; leave the cache unchanged; callers must retry transient failures. | Return an empty list if no records match. Leave the cache unchanged. Callers must retry transient failures. |
 
 ## Sources and interpretation
 

@@ -14,29 +14,10 @@ For each candidate, read its declaration, implementation, and at least one use. 
 | N4 — Conciseness | Remove each candidate word mentally. Flag redundant scope or metadata only if the shorter name retains the same meaning and distinction. | Use `invoice.total` rather than `invoice.invoiceTotalAmountValue` when the fields express the same contract. | Removing a word loses a unit, domain distinction, or established public spelling. |
 | N5 — Consistency | Compare declarations and callers within the same bounded context. Flag different terms for the same concept without an established distinction. | Use the glossary's `customer` instead of introducing `client` for the same buyer. | A framework fixes the spelling, or another bounded context intentionally uses a different term. |
 | N6 — Distinguishability | Compare names used together and trace their values. Flag near-identical names that conceal different states, roles, or contracts. | Replace `invoice1` and `invoice2` with `draftInvoice` and `postedInvoice` when those are their roles. | Positional names are the contract, as in generic pair processing. |
-
-When these rules compete, retain the established term unless it misrepresents the concept or hides a consequential distinction. Do not introduce a second term solely for stylistic reasons. Identifier length alone is not a quality principle.
-
-## Establish meaning before renaming
-
-- Read implementation and callers. `calculateInvoiceTotal` persisting an invoice is a contract problem; the remedy may be separating persistence or exposing the combined operation explicitly.
-- Consult the domain glossary. `customer` (buyer) and `account` (billing relationship) need not be synonyms. Different bounded contexts may intentionally use different vocabulary.
-- Match specificity to scope. `i` in a conventional short loop can be clearer than a long invented noun. `data` can fit a generic serializer and still be too vague in a billing API.
-- Express units where ambiguity exists. Do not infer milliseconds solely from `timeout = 5000`. A unit-bearing type or established contract can already convey the unit.
-- Preserve externally mandated fields and framework method names. Internal naming corrections do not authorize wire-format or database changes.
-- Boolean arguments are not universally wrong. Consider call-site readability, named arguments, defaults, and whether separate methods would proliferate without benefit.
-
-## Rename cost
-
-Search symbol references plus public API clients, serialized keys, migrations, reflection, templates, configuration, logs relied on operationally, and documentation. Use language-aware rename when available; otherwise update references explicitly and verify them with search and relevant checks. Neither method replaces inspection of non-symbol consumers. For a public contract, use an agreed compatibility strategy (for example an alias or versioned migration) instead of a silent breaking rename.
-
-Report a rename only when its likely benefit outweighs compatibility and review cost. Avoid unrelated naming churn.
-
-## Deterministic boundary
-
-Explicit casing conventions, scoped deprecated aliases, or a documented unit suffix can be enforced by an AST/type-aware repository tool. Run those tools directly. The skill's source inventory helps locate declarations; it does not decide whether a name represents the correct business concept.
-
-Length, vague-name matches, confusable names, and suspicious boolean prefixes are review signals unless the project has deliberately adopted a narrow rule with appropriate exceptions.
+| N7 — Resolve competing names | Compare proposed names with the established term, glossary, and bounded context. Flag a new synonym that adds no distinction or a rename justified only by length. | Retain the established term unless implementation evidence shows it misrepresents the concept or hides a consequential distinction. | Different contexts intentionally use different vocabulary; a short local name has an unambiguous role. Do not ban `data`, `manager`, or boolean arguments universally. |
+| N8 — Non-symbol consumers | Before a rename, search public clients, serialized keys, database columns/migrations, reflection, templates, configuration, operational logs, and docs as well as symbol references. Flag an affected consumer omitted from the plan. | Use language-aware rename when available; otherwise update references explicitly. Verify non-symbol consumers with search and relevant checks either way. | An inspected consumer is unaffected. A successful symbol rename alone is not compatibility evidence. |
+| N9 — Compatibility and rename cost | Compare the reader benefit with public spelling, framework constraints, migration cost, and requested scope. Flag a silent breaking rename or unrelated naming churn. | Preserve externally fixed names. Use an agreed alias or versioned migration for an authorized public rename; report its compatibility cost. | The established name remains usable and the proposed benefit does not justify disruption. |
+| N10 — Enforce only agreed conventions | Inspect repository casing, deprecated-alias, and unit-suffix policy plus tool exceptions. Flag a violation only when that policy applies to the identifier. | Run the existing AST/type-aware check directly. Treat vague names, length, confusability, and boolean prefixes as candidates for N1–N7 inspection, not automatic defects. | No narrow policy is agreed, or an explicit exception applies. Source inventories do not determine business meaning. |
 
 ## Source pointers
 

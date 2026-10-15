@@ -12,31 +12,10 @@ Apply these rules to implementations, callers, tests, and documented boundaries.
 | D6 — Agreed architecture | Read the documented dependency direction, then inspect the resolved dependency graph. Flag a forbidden edge or cycle covered by project policy. | Remove the dependency through the existing boundary; add allowed, forbidden, and exception fixtures to its check. | No agreed boundary forbids the edge. Report the unknown rather than inventing a layering scheme. |
 | D7 — Failure and retry contracts | Trace timeout, partial-success, retry, and duplicate-delivery paths in data/distributed changes. Flag a supported failure scenario with unspecified recovery or inconsistent effects. | Reuse a stable request ID across retries when the receiver's deduplication contract supports it; test a timeout after acceptance. | No such failure path applies, or the existing contract and tests already cover it. Do not assume exactly-once delivery. |
 | D8 — Schema evolution | Compare old/new readers and writers, serialized fields, and rollout order. Flag a schema change that breaks supported consumers or loses data without an agreed migration. | Use a compatible rollout and test supported old/new reader-writer combinations before removing a field. | No old data or consumers survive the change, or an explicitly agreed breaking migration covers both. |
-
-## Resolve tensions in favor of reader cost
-
-Very small functions can help when they name a coherent operation. They can hurt when understanding one operation requires jumping through several one-line wrappers. Judge the amount of context the next maintainer needs, not line counts.
-
-An abstraction earns its place by simplifying callers, hiding unstable details, or representing shared domain knowledge. Avoid introducing interfaces, factories, or layers for hypothetical variation. Conversely, removing an interface solely because it currently has one implementation can discard an intentional boundary.
-
-Use [Commenting Principles](commenting-principles.md) to document contracts, constraints, non-obvious algorithms, and rationale. Comments can explain both why a choice exists and what an interface promises; remove redundant narration only when the code conveys the same information. Apply language-appropriate error handling rather than universal rules borrowed from another ecosystem.
-
-## Make architecture executable where justified
-
-- Start from documented boundaries and real maintenance failures.
-- Use the repository's dependency tooling for graph-wide restrictions and cycles. A changed import can create a cycle through unchanged files.
-- Keep simple scripts simple; they need not adopt enterprise layers.
-- Add positive and negative fixtures for custom rules, including legitimate exceptions.
-- Introduce only a few high-value rules. Keep complexity, length, and duplication warnings advisory until evidence supports enforcement.
-- Existing debt may need explicit exceptions in the repository's own tooling. Do not regenerate a baseline after each failing change.
-
-## Evidence for a useful finding
-
-Weak: “This method is long; split it.”
-
-Useful: “`billing.py:82` mixes tax calculation with a retrying network write. Callers calculating a preview can create an invoice. Separate calculation from persistence, preserve rounding behavior, and add a regression check at the preview boundary.”
-
-State the observable consequence and propose the smallest remedy that addresses it. Check behavioral contracts with tests that exercise caller-visible outcomes rather than mirror implementation steps.
+| D9 — Reader cost before size | Trace the navigation needed to understand one operation before splitting or combining routines. Flag an extraction that adds jumps without naming a coherent operation or hiding detail. | Keep the operation together or extract a meaningful step; document hidden contracts with C2–C3. | The helper reduces required context. Function length, wrapper size, and implementation count alone do not justify a change. |
+| D10 — Executable boundary checks | Before adding an architecture check, inspect agreed boundaries, actual failures, existing dependency tooling, and allowed/forbidden/exception fixtures. Flag a check that ignores transitive cycles or rejects legitimate exceptions. | Check the resolved graph, including unchanged files. Add positive, negative, and exception fixtures using existing tools. | No agreed restriction exists. Keep simple scripts simple; do not introduce layers or speculative factories. |
+| D11 — Enforcement and debt | Inspect the justification for required complexity, length, or duplication checks and any baseline changes. Flag enforcement without an agreed policy or a baseline expanded solely to pass a failing change. | Keep unsupported heuristics advisory. Add only justified high-value constraints; record authorized debt exceptions in the repository's own tooling. | Explicit policy and narrow exceptions support enforcement. Do not regenerate baselines on each failure. |
+| D12 — Caller-visible verification | Compare tests with the changed contract, failure paths, and language conventions. Flag tests that merely mirror implementation steps or omit an affected boundary outcome. | Test observable results, errors, ordering, and side effects. For invoice previews, verify preserved rounding and no persistence. Use language-appropriate error handling. | Existing tests already exercise the affected outcomes. Passing tests do not replace evidence for D1–D11. |
 
 ## Source pointers
 
