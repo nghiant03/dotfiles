@@ -12,7 +12,6 @@ blas-openblas
 bluez-utils
 bun
 cantor
-colord-kde
 conky
 csvkit
 cuda

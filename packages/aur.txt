@@ -1,9 +1,10 @@
+antigravity
 backintime
 betterbird-bin
 bibtex-tidy
-chatgpt-desktop-bin
 cisco-secure-client
 cloudflare-warp-bin
+colord-kde
 crush-bin
 evdi-dkms
 furmark
@@ -11,6 +12,7 @@ google-chrome
 google-cloud-cli
 ltex-ls-plus-bin
 onlyoffice-bin
+pi
 teamviewer
 tex-fmt
 universal-android-debloater

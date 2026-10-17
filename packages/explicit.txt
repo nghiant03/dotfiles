@@ -2,6 +2,7 @@ accessibility-inspector
 age
 alsa-utils
 android-tools
+antigravity
 ark
 aws-cli
 backintime
@@ -15,7 +16,6 @@ blas-openblas
 bluez-utils
 bun
 cantor
-chatgpt-desktop-bin
 cisco-secure-client
 cloudflare-warp-bin
 colord-kde
@@ -193,6 +193,7 @@ otf-overpass-nerd
 pacman-contrib
 partitionmanager
 php
+pi
 picmi
 pipewire-alsa
 plasma-desktop

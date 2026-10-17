@@ -53,6 +53,7 @@ export_packages() {
 }
 
 install_package_hook() {
+	require_root package-hook
   local target_user="${2:-${SUDO_USER:-}}"
   if [[ -z "$target_user" || "$target_user" == root ]]; then
     target_user="$(stat -c %U "$ROOT")"
