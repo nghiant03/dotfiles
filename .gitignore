@@ -71,6 +71,7 @@ zotero/zotero/*
 # Secrets and machine identities
 git/credentials
 git/.secret
+jj/conf.d/*.secret.toml
 gh/hosts.yml
 litellm/chatgpt/
 vastai/

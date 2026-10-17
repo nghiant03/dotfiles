@@ -6,3 +6,7 @@ email = "nghiant@mailbox.org"
 
 [ui]
 editor = "nvim"
+
+[signing]
+behavior = "own"
+backend = "gpg"
