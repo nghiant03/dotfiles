@@ -9,12 +9,8 @@ sizerule=3
 wmclass=kitty
 wmclassmatch=1
 
-[6cf897db-7d1a-4a2a-8c5d-222c687d9fcc]
-noborderrule=2
-
 [General]
-count=2
-rules=205a88ee-e2ed-43fa-9780-7ef95cf15c8a,af8bf26e-bf80-4323-ad5e-601d82a95b3e
+Order=steam,205a88ee-e2ed-43fa-9780-7ef95cf15c8a,af8bf26e-bf80-4323-ad5e-601d82a95b3e
 
 [af8bf26e-bf80-4323-ad5e-601d82a95b3e]
 Description=conky
