@@ -1,19 +1,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[custom.jj]
-command = "jj-starship --no-jj-prefix --no-git-prefix"
-when = 'd=$PWD; while [ "$d" != / ]; do [ -d "$d/.jj" ] && exit 0; d=$(dirname "$d"); done; exit 1'
-format = '\[[$output](yellow)\]'
-description = "The current Jujutsu repository status"
-
-[custom.git]
-command = "jj-starship --no-jj-prefix --no-git-prefix"
-when = 'd=$PWD; while [ "$d" != / ]; do [ -d "$d/.jj" ] && exit 1; [ -e "$d/.git" ] && exit 0; d=$(dirname "$d"); done; exit 1'
-format = '\[[$output](yellow)\]'
-description = "The current Git repository status"
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$nats\
+$directory\
+$vcs\
+$all\
+"""
 
 [git_branch]
 disabled = true
+format = '\[[$symbol$branch(:$remote_branch)]($style)\] '
 
 [gcloud]
 detect_env_vars = ['GOOGLE_CLOUD_PROJECT', 'GOOGLE_APPLICATION_CREDENTIALS', 'CLOUDSDK_ACTIVE_CONFIG', 'GCP_PROJECT', 'GCLOUD_PROJECT']
@@ -98,7 +100,10 @@ format = '\[[$symbol$branch]($style)\]'
 format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
 
 [git_commit]
-format = '\[[\($hash$tag\)]($style)\]'
+disabled = true
+commit_hash_length = 8
+only_detached = false
+format = '\[[\($hash$tag\)]($style)\] '
 
 [git_metrics]
 format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
@@ -109,6 +114,21 @@ format = '\[[$state ($progress_current/$progress_total)]($style)\]'
 [git_status]
 disabled = true
 format = '([\[$all_status$ahead_behind\]]($style))'
+
+[jj_change]
+change_hash_length = 8
+format = '[\[$change\]](yellow) '
+
+[jj_bookmark]
+format = '\[[$symbol$bookmark(@$remote)$diverged( \(+$overflow_count others\))]($style)\] '
+
+[jj_metrics]
+format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
+
+[vcs]
+order = ["jj", "git"]
+jj_modules = "$jj_change$jj_bookmark$jj_metrics$jj_status"
+git_modules = "$git_branch$git_commit$git_status"
 
 [gleam]
 format = '\[[$symbol($version)]($style)\]'
