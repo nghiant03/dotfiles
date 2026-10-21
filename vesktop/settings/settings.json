@@ -181,7 +181,7 @@
             "stickerSize": 160,
             "transformStickers": true,
             "transformCompoundSentence": false,
-            "enableStreamQualityBypass": true,
+            "enableStreamQualityBypass": false,
             "useHyperLinks": true,
             "hyperLinkText": "{{NAME}}",
             "disableEmbedPermissionCheck": false
@@ -606,7 +606,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1791551987821
+        "settingsSyncVersion": 1792337829216
     },
     "nativeTitleBar": false
 }

@@ -13,5 +13,6 @@
     "enableMenu": false,
     "audio": {
         "granularSelect": false
-    }
+    },
+    "hardwareAcceleration": false
 }
