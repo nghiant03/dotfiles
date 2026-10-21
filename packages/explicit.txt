@@ -17,7 +17,6 @@ bluez-utils
 bun
 cantor
 cisco-secure-client
-cloudflare-warp-bin
 colord-kde
 conky
 crush-bin
@@ -193,7 +192,6 @@ otf-overpass-nerd
 pacman-contrib
 partitionmanager
 php
-pi
 picmi
 pipewire-alsa
 plasma-desktop
