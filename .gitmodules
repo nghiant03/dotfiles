@@ -1,0 +1,3 @@
+[submodule "agents/skills/refine-writing"]
+	path = agents/skills/refine-writing
+	url = https://github.com/nghiant03/refine-writing
