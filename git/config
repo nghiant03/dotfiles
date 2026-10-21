@@ -18,3 +18,5 @@
 	required = true
 [include]
 	path = .secret
+[rerere]
+	enabled = true
