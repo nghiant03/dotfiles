@@ -72,7 +72,9 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git jj starship zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git jj starship transient-prompt zsh-autosuggestions zsh-syntax-highlighting)
+
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character)'
 
 source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
