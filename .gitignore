@@ -36,6 +36,7 @@ jupyter/serverconfig/*
 thunderbird/*
 !thunderbird/installs.ini
 !thunderbird/profiles.ini
+vesktop/state.json
 zotero/zotero/*
 !zotero/zotero/profiles.ini
 **/Cache/
