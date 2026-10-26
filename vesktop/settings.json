@@ -1,5 +1,6 @@
 {
     "discordBranch": "stable",
+"nativeTitleBar": true,
     "minimizeToTray": true,
     "arRPC": true,
     "splashColor": "rgb(239, 239, 241)",
