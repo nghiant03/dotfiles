@@ -1,0 +1,48 @@
+{
+  "version": 6,
+  "sidebar": {
+    "show": true,
+    "sessionTokens": false
+  },
+  "statusLine": {
+    "show": false,
+    "home": false
+  },
+  "toast": {
+    "show": true,
+    "sessionTokens": false
+  },
+  "providers": {
+    "off": [],
+    "custom": [
+      {
+        "id": "hyper-credits",
+        "providerId": "hyper",
+        "label": "Hyper",
+        "mode": "remote-api",
+        "url": "https://hyper.charm.land/v1/credits",
+        "format": "json-v1",
+        "adapter": {
+          "mappings": [
+            {
+              "resultType": "balance",
+              "name": "Credits",
+              "label": "Credits:",
+              "unit": "credits",
+              "unitPosition": "suffix",
+              "metric": {
+                "type": "value",
+                "valueType": "balance",
+                "value": {
+                  "path": [
+                    "balance"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
