@@ -1,32 +1,31 @@
 #!/usr/bin/env bash
-# GitNexus PreToolUse adapter for Crush.
-#
-# Crush hook contract  ->  Claude Code contract (gitnexus-hook.cjs)  ->  Crush context.
-#
-# Crush sends: {"event":"PreToolUse","session_id":..,"cwd":..,"tool_name":"bash","tool_input":{...}}
-# GitNexus expects:   {"hook_event_name":"PreToolUse","tool_name":"Bash","tool_input":{...},"cwd":...}
-# GitNexus replies:   {"hookSpecificOutput":{"hookEventName":"PreToolUse","additionalContext":"..."}}
-# Crush expects:      {"context":"..."} (no decision -> no opinion, tool proceeds normally)
-
+# HOME is redirected: real home is read-only, gitnexus state (registry, FTS
+# extension) lives under ~/.local/share/gitnexus-home (see ~/.local/bin/gitnexus).
 set -eu
 
-# Real home is read-only: gitnexus state (registry, .lbdb FTS extension) lives
-# under a redirected HOME — see the wrapper at ~/.local/bin/gitnexus.
 GN_REAL_HOME="/home/nghiant"
 GN_HOME="$GN_REAL_HOME/.local/share/gitnexus-home"
 GN_HOOK="$GN_REAL_HOME/.local/lib/node_modules/gitnexus/hooks/claude/gitnexus-hook.cjs"
-# The hook script spawns this with `node <path> ...`, so it must be the JS
-# entrypoint — NOT the ~/.local/bin/gitnexus shell wrapper (HOME is already
-# redirected by this adapter, so the wrapper is unnecessary here anyway).
 GN_CLI="$GN_REAL_HOME/.local/lib/node_modules/gitnexus/dist/cli/index.js"
 
 input=$(cat)
 
+gn_dir="${CRUSH_CWD:-$PWD}"
+gn_found=false
+for _ in 1 2 3 4 5; do
+  [ -d "$gn_dir/.gitnexus" ] && { gn_found=true; break; }
+  gn_parent="$(dirname "$gn_dir")"
+  [ "$gn_parent" = "$gn_dir" ] && break
+  gn_dir="$gn_parent"
+done
+
+if [ "$gn_found" = false ]; then
+  exit 0
+fi
+
 [ -f "$GN_HOOK" ] || exit 0
 [ -f "$GN_CLI" ] || exit 0
 
-# GitNexus only augments search tools; map Crush's lowercase names to
-# Claude Code's capitalized ones, exit silently for everything else.
 tool=$(printf '%s' "$input" | jq -r '.tool_name // empty')
 case "$tool" in
   bash) tool='Bash' ;;
