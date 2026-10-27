@@ -10,6 +10,7 @@ furmark
 google-chrome
 google-cloud-cli
 ltex-ls-plus-bin
+obs-backgroundremoval
 onlyoffice-bin
 teamviewer
 tex-fmt

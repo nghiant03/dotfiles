@@ -18,7 +18,6 @@ bun
 cantor
 cisco-secure-client
 colord-kde
-conky
 crush-bin
 csvkit
 cuda
@@ -171,6 +170,8 @@ nvidia-prime
 nvidia-settings
 nvidia-utils
 nvtop
+obs-backgroundremoval
+obs-studio
 okular
 onlyoffice-bin
 openbsd-netcat
