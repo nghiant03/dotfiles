@@ -10,13 +10,4 @@ wmclass=kitty
 wmclassmatch=1
 
 [General]
-Order=steam,205a88ee-e2ed-43fa-9780-7ef95cf15c8a,af8bf26e-bf80-4323-ad5e-601d82a95b3e
-
-[af8bf26e-bf80-4323-ad5e-601d82a95b3e]
-Description=conky
-desktops=\\0
-desktopsrule=2
-minimizerule=2
-wmclass=conky conky
-wmclasscomplete=true
-wmclassmatch=1
+Order=205a88ee-e2ed-43fa-9780-7ef95cf15c8a
