@@ -6,8 +6,8 @@ RightButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][1]
-ItemGeometries-1920x1080=Applet-44:1568,112,176,224,0;Applet-38:1744,112,176,208,0;Applet-43:1744,720,176,192,0;Applet-37:1744,528,176,192,0;Applet-36:1744,336,176,192,0;
-ItemGeometriesHorizontal=Applet-44:1568,112,176,224,0;Applet-38:1744,112,176,208,0;Applet-43:1744,720,176,192,0;Applet-37:1744,528,176,192,0;Applet-36:1744,336,176,192,0;
+ItemGeometries-1920x1080=Applet-44:0,96,176,256,0;Applet-45:0,352,176,288,0;Applet-38:1744,96,224,240,0;Applet-36:1744,336,176,192,0;Applet-47:0,640,176,144,0;Applet-37:1744,528,176,192,0;Applet-43:1728,720,192,192,0;
+ItemGeometriesHorizontal=Applet-44:0,96,176,256,0;Applet-45:0,352,176,288,0;Applet-38:1744,96,224,240,0;Applet-36:1744,336,176,192,0;Applet-47:0,640,176,144,0;Applet-37:1744,528,176,192,0;Applet-43:1728,720,192,192,0;
 activityId=e6703b1f-3a27-4a08-b70c-9e8e575cbd61
 formfactor=0
 immutability=1
@@ -110,6 +110,64 @@ cpu/all/usage=0,114,255
 highPrioritySensorIds=["cpu/all/usage"]
 lowPrioritySensorIds=["cpu/all/cpuCount","cpu/all/coreCount"]
 totalSensors=["cpu/all/usage"]
+
+[Containments][1][Applets][45]
+immutability=1
+plugin=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][45][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][45][Configuration][Appearance]
+chartFace=org.kde.ksysguard.linechart
+title=GPU Use
+
+[Containments][1][Applets][45][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][1][Applets][45][Configuration][SensorColors]
+gpu/gpu0/usage=234,0,255
+nvgpu/nvidia_0000:01:00_0/state=0,213,255
+nvgpu/nvidia_0000:01:00_0/usage=160,255,0
+
+[Containments][1][Applets][45][Configuration][SensorLabels]
+gpu/gpu0/usage=iGPU Usage
+nvgpu/nvidia_0000:01:00_0/state=dGPU State
+nvgpu/nvidia_0000:01:00_0/usage=dGPU Usage
+
+[Containments][1][Applets][45][Configuration][Sensors]
+highPrioritySensorIds=["gpu/gpu0/usage","nvgpu/nvidia_0000:01:00_0/usage"]
+lowPrioritySensorIds=["nvgpu/nvidia_0000:01:00_0/state"]
+
+[Containments][1][Applets][47]
+immutability=1
+plugin=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][47][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][47][Configuration][Appearance]
+chartFace=org.kde.ksysguard.textonly
+title=Temperature
+
+[Containments][1][Applets][47][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][1][Applets][47][Configuration][SensorColors]
+cpu/all/averageTemperature=160,255,0
+gpu/gpu0/temperature=244,255,0
+nvgpu/nvidia_0000:01:00_0/state=0,88,255
+nvgpu/nvidia_0000:01:00_0/temperature=255,0,211
+
+[Containments][1][Applets][47][Configuration][SensorLabels]
+cpu/all/averageTemperature=CPU Temp
+gpu/gpu0/temperature=iGPU Temp
+nvgpu/nvidia_0000:01:00_0/temperature=dGPU Temp
+
+[Containments][1][Applets][47][Configuration][Sensors]
+highPrioritySensorIds=["cpu/all/averageTemperature","nvgpu/nvidia_0000:01:00_0/temperature"]
 
 [Containments][1][ConfigDialog]
 DialogHeight=630
