@@ -10,4 +10,4 @@ wmclass=kitty
 wmclassmatch=1
 
 [General]
-Order=205a88ee-e2ed-43fa-9780-7ef95cf15c8a
+Order=steam,205a88ee-e2ed-43fa-9780-7ef95cf15c8a
