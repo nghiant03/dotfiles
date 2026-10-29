@@ -4,6 +4,18 @@ option skill-path "$HOME/.config/agents/skills"
 
 mcp add gitnexus --command bash --args "$HOME/.local/bin/gitnexus" --args mcp
 
+gn_dir=$PWD
+until [ -d "$gn_dir/.gitnexus" ] || [ "$gn_dir" = / ]; do
+  gn_dir=$(dirname "$gn_dir")
+done
+if [ -d "$gn_dir/.gitnexus" ]; then
+  hook add PreToolUse \
+    --name gitnexus-augment \
+    --matcher '^(bash|grep|glob)$' \
+    --command "$HOME/.config/crush/hooks/gitnexus-pretooluse.sh" \
+    --timeout 15
+fi
+
 option disable-skill ai-writing-detector
 option disable-skill avoid-ai-writing
 option disable-skill avoid-ai-writing-router
