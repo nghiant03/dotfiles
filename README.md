@@ -12,7 +12,6 @@ Personal Arch Linux configuration files managed with git.
 ├── backintime/
 │   ├── config                  # User Back In Time profile
 │   └── root-config             # /root/.config/backintime/config content
-├── conky/                      # Conky system monitor config and scripts
 ├── crush/                      # Crush config
 ├── fcitx5/                     # Input method 
 ├── git/
@@ -28,6 +27,7 @@ Personal Arch Linux configuration files managed with git.
 │   ├── explicit.txt            # All explicit packages
 │   └── native.txt              # Explicit repo packages
 ├── scripts/
+│   ├── README.md               # Script usage docs
 │   ├── bootstrap.sh            # Restore packages/configs/system zsh
 │   ├── export-packages.sh      # Refresh package manifests
 │   ├── install-package-export-hook.sh # Pacman post-transaction export hook
@@ -73,14 +73,13 @@ Refresh package manifests from the current machine:
 | Component    | Key highlights                          |
 |--------------|-----------------------------------------|
 | **zsh**      | Starship prompt, XDG directory compliance |
-| **KDE**      | Global shortcuts, keyboard options, KWin window rules, Plasma settings |
+| **KDE**      | Global shortcuts, KWin window rules, Plasma settings, panel widgets |
 | **packages** | Explicit native and foreign/AUR manifests; optional automatic export hook |
 | **kitty**    | Themed terminal emulator               |
 | **vim**      | Editor config                          |
-| **conky**    | System monitor with custom layout      |
 | **backup**   | User and root Back In Time profiles    |
 | **git**      | Signing and editor settings            |
 | **OpenCode** | AI assistant with plugins, presets, and skills |
-| **crush**    | AI assistant config with hooks; skills in `agents/skills/` |
+| **crush**    | AI assistant config with hooks, skills |
 | **nvim**     | LazyVim-based editor config with plugin set |
 | **speech**   | Piper TTS via speech-dispatcher        |
