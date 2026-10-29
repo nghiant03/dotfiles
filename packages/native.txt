@@ -12,6 +12,7 @@ blas-openblas
 bluez-utils
 bun
 cantor
+cmake
 csvkit
 cuda
 dkms
@@ -28,6 +29,7 @@ efitools
 elisa
 ethtool
 evtest
+extra-cmake-modules
 fcitx5-bamboo
 fcitx5-configtool
 fcitx5-gtk
@@ -158,7 +160,6 @@ nvidia-prime
 nvidia-settings
 nvidia-utils
 nvtop
-obs-studio
 okular
 openbsd-netcat
 opencode

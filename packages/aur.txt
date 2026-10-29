@@ -2,7 +2,6 @@ antigravity
 backintime
 betterbird-bin
 bibtex-tidy
-cisco-secure-client
 colord-kde
 crush-bin
 evdi-dkms
@@ -10,7 +9,6 @@ furmark
 google-chrome
 google-cloud-cli
 ltex-ls-plus-bin
-obs-backgroundremoval
 onlyoffice-bin
 teamviewer
 tex-fmt

@@ -16,7 +16,7 @@ blas-openblas
 bluez-utils
 bun
 cantor
-cisco-secure-client
+cmake
 colord-kde
 crush-bin
 csvkit
@@ -36,6 +36,7 @@ elisa
 ethtool
 evdi-dkms
 evtest
+extra-cmake-modules
 fcitx5-bamboo
 fcitx5-configtool
 fcitx5-gtk
@@ -170,8 +171,6 @@ nvidia-prime
 nvidia-settings
 nvidia-utils
 nvtop
-obs-backgroundremoval
-obs-studio
 okular
 onlyoffice-bin
 openbsd-netcat
