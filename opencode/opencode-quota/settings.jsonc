@@ -44,5 +44,10 @@
         }
       }
     ]
+  },
+  "system": {
+    "oldCommands": false
+  },
+  "colors": {
   }
 }
