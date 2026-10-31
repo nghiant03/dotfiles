@@ -6,8 +6,8 @@ RightButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][1]
-ItemGeometries-1920x1080=Applet-44:0,96,176,256,0;Applet-45:0,352,176,288,0;Applet-38:1744,96,176,240,0;Applet-36:1744,336,176,192,0;Applet-47:0,640,176,144,0;Applet-37:1744,528,176,192,0;Applet-43:1728,720,192,192,0;
-ItemGeometriesHorizontal=Applet-44:0,96,176,256,0;Applet-45:0,352,176,288,0;Applet-38:1744,96,176,240,0;Applet-36:1744,336,176,192,0;Applet-47:0,640,176,144,0;Applet-37:1744,528,176,192,0;Applet-43:1728,720,192,192,0;
+ItemGeometries-1920x1080=Applet-45:0,496,176,288,0;Applet-44:0,240,176,256,0;Applet-47:0,96,176,144,0;Applet-48:1744,112,176,80,0;Applet-38:1744,192,176,240,0;Applet-37:1744,576,176,192,0;Applet-36:1744,432,176,144,0;Applet-43:1744.01,767.985,176,176,0;
+ItemGeometriesHorizontal=Applet-45:0,496,176,288,0;Applet-44:0,240,176,256,0;Applet-47:0,96,176,144,0;Applet-48:1744,112,176,80,0;Applet-38:1744,192,176,240,0;Applet-37:1744,576,176,192,0;Applet-36:1744,432,176,144,0;Applet-43:1744.01,767.985,176,176,0;
 activityId=e6703b1f-3a27-4a08-b70c-9e8e575cbd61
 formfactor=0
 immutability=1
@@ -172,6 +172,24 @@ nvgpu/nvidia_0000:01:00_0/temperature=dGPU Temp
 
 [Containments][1][Applets][47][Configuration][Sensors]
 highPrioritySensorIds=["cpu/all/averageTemperature","nvgpu/nvidia_0000:01:00_0/temperature"]
+
+[Containments][1][Applets][48]
+immutability=1
+plugin=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][48][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][48][Configuration][Appearance]
+chartFace=org.kde.ksysguard.textonly
+title=System
+
+[Containments][1][Applets][48][Configuration][ConfigDialog]
+DialogHeight=630
+DialogWidth=810
+
+[Containments][1][Applets][48][Configuration][Sensors]
+lowPrioritySensorIds=["os/system/uptime"]
 
 [Containments][1][ConfigDialog]
 DialogHeight=630
