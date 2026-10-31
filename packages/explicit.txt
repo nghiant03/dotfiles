@@ -21,6 +21,7 @@ colord-kde
 crush-bin
 csvkit
 cuda
+deepfilternet-ladspa
 dkms
 docker
 docker-buildx
@@ -28,7 +29,6 @@ docker-compose
 dolphin
 dolphin-plugins
 dosfstools
-dragon
 easyeffects
 efibootmgr
 efitools
@@ -153,6 +153,7 @@ llvm
 lokalize
 lsb-release
 lsof
+lsp-plugins-lv2
 ltex-ls-plus-bin
 lua-language-server
 marble
@@ -206,6 +207,7 @@ refind
 ripgrep
 rocs
 rsync
+rtkit
 ruby
 rust-analyzer
 rustup
@@ -320,6 +322,7 @@ usbip
 uv
 vesktop-bin
 vim
+vlc
 wayland
 wget
 wl-clipboard

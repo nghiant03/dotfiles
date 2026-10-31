@@ -15,6 +15,7 @@ cantor
 cmake
 csvkit
 cuda
+deepfilternet-ladspa
 dkms
 docker
 docker-buildx
@@ -22,7 +23,6 @@ docker-compose
 dolphin
 dolphin-plugins
 dosfstools
-dragon
 easyeffects
 efibootmgr
 efitools
@@ -143,6 +143,7 @@ llvm
 lokalize
 lsb-release
 lsof
+lsp-plugins-lv2
 lua-language-server
 marble
 markdownpart
@@ -194,6 +195,7 @@ refind
 ripgrep
 rocs
 rsync
+rtkit
 ruby
 rust-analyzer
 rustup
@@ -304,6 +306,7 @@ unzip
 usbip
 uv
 vim
+vlc
 wayland
 wget
 wl-clipboard
