@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=AudioVideo;Audio;
+Comment=Simple audio effects
+Exec=easyeffects
+GenericName=Equalizer, Compressor and Other Audio Effects
+Icon=com.github.wwmm.easyeffects
+Keywords=limiter;compressor;reverberation;equalizer;autovolume;
+Name=Easy Effects
+StartupNotify=true
+Terminal=false
+Type=Application

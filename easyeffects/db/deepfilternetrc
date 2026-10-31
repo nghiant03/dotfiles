@@ -1,0 +1,4 @@
+[sie][DeepFilterNet#0]
+attenuationLimit=20
+model=1
+postFilterBeta=0
