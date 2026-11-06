@@ -5,7 +5,7 @@
     "layout": "main-vertical",
     "main_pane_size": 60
   },
-  "preset": "hyper",
+  "preset": "openai",
   "disabled_agents": [],
   "image_routing": "auto",
   "presets": {
