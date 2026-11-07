@@ -1,6 +1,3 @@
-if vim.g.is_ssh then
-  return
-end
 vim.opt.wrap = true
 local map = function(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { buffer = true, silent = true, desc = desc })
