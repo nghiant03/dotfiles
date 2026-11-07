@@ -2,12 +2,12 @@ antigravity
 backintime
 betterbird-bin
 bibtex-tidy
-colord-kde
 crush-bin
 evdi-dkms
 furmark
 google-chrome
 google-cloud-cli
+libfprint-cs9711-sigfm-git
 ltex-ls-plus-bin
 onlyoffice-bin
 teamviewer

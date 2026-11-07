@@ -17,7 +17,6 @@ bluez-utils
 bun
 cantor
 cmake
-colord-kde
 crush-bin
 csvkit
 cuda
@@ -44,6 +43,7 @@ fd
 ffmpegthumbs
 filelight
 firefox
+fprintd
 furmark
 fwupd
 geckodriver
@@ -116,14 +116,11 @@ kirigami-gallery
 kitty
 kjournald
 kleopatra
-klines
 kmag
-kmines
 kmix
 kmousetool
 kmouth
 kmplot
-knavalbattle
 koko
 kolourpaint
 kompare
@@ -145,7 +142,7 @@ kturtle
 kup
 kwave
 kweather
-libxml2-legacy
+libfprint-cs9711-sigfm-git
 linux
 linux-firmware
 linux-headers
@@ -193,12 +190,10 @@ otf-overpass-nerd
 pacman-contrib
 partitionmanager
 php
-picmi
 pipewire-alsa
 plasma-desktop
 plasma-meta
 powertop
-poxml
 python-pip
 python-pylatexenc
 python-websockets
