@@ -34,4 +34,4 @@ vim.opt.autoread = true				                  -- read from buffer when switch to 
 vim.opt.autowrite = true
 vim.opt.linebreak = true
 
-vim.api.nvim_command("set guicursor=a:blinkon100")
+vim.opt.guicursor = "a:block-blinkwait700-blinkon500-blinkoff500"
