@@ -10,6 +10,8 @@ map("n", "<C-Right>",    "<cmd>vertical resize +2<cr>", { desc = "Widen Window" 
 map("n", "<S-l>",        "<cmd>bnext<cr>",        	    { desc = "Next Buffer" })
 map("n", "<S-h>",        "<cmd>bprevious<cr>",    		  { desc = "Previous Buffer" })
 map("n", "<LeftMouse>",  "m'<LeftMouse>",         		  { desc = "Click (Add to Jumplist)" })
+-- Terminal:
+map("t",								 "<C-q>", "<C-\\><C-n>",				{ desc = "Terminal: Enter Normal Mode" })
 -- Visual
 map("v", "<",            "<gv",                   	    { desc = "Indent Left and Reselect" })
 map("v", ">",            ">gv",                   		  { desc = "Indent Right and Reselect" })

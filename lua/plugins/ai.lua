@@ -11,6 +11,15 @@ return {
 		"folke/sidekick.nvim",
 		opts = {
 			cli = {
+				win = {
+					keys = {
+						buffers = false,
+						files = false,
+						prompt = false,
+						hide_ctrl_q = false,
+						stopinsert = false,
+					},
+				},
 				tools = {
 					crush = {
 						env = { CRUSH_CLIENT_SERVER = "1" },
