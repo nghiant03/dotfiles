@@ -1,6 +1,0 @@
-{
-  "plugin": [
-    "oh-my-opencode-slim@2.2.24",
-    "@slkiser/opencode-quota"
-  ]
-}

@@ -3,10 +3,6 @@
   "theme": {
     "name": "tokyonight"
   },
-  "plugins": [
-    "oh-my-opencode-slim@2.2.24",
-    "@slkiser/opencode-quota"
-  ],
   "diffs": {
     "wrap": "word"
   },
