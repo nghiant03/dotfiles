@@ -61,8 +61,11 @@ return {
     "kawre/neotab.nvim",
     event = "InsertEnter",
     opts = {
-      -- configuration goes here
+      tabkey = "",
     },
+    config = function(_, opts)
+      require("config.neotab").setup(opts)
+    end,
   },
   {
 		"NeogitOrg/neogit",
@@ -86,36 +89,6 @@ return {
 		"esmuellert/codediff.nvim",
 		dependencies = { "MunifTanjim/nui.nvim" },
 		cmd = "CodeDiff",
-	},
-	{
-		'amitds1997/remote-nvim.nvim',
-		version = "*",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		opts = {
-			remote = {
-				copy_dirs = {
-					config = {
-						dirs = {"lua", "ftplugin", "init.lua"}, -- Directories that should be copied over. "*" means all directories. To specify a subset, use a list like {"lazy", "mason"} where "lazy", "mason" are subdirectories
-					}
-				}
-			},
-			client_callback = function(port, _)
-				vim.notify("Opening Kitty…", vim.log.levels.INFO, { title = "remote-nvim" })
-
-				local cmd = ("kitty -e nvim --server localhost:%s --remote-ui"):format(port)
-				vim.fn.jobstart(cmd, {
-					detach = true,
-					on_exit = function(job_id, exit_code, event_type)
-						-- This function will be called when the job exits
-						print("Client", job_id, "exited with code", exit_code, "Event type:", event_type)
-					end,
-				})
-			end,
-		},
-		config = true
 	},
 	{
 		"linux-cultist/venv-selector.nvim",
