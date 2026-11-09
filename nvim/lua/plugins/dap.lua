@@ -12,7 +12,7 @@ return {
       { "<leader>dr", function() require("dap").repl.toggle() end,  desc = "Toggle REPL" },
       { "<leader>ds", function() require("dap").session() end,      desc = "DAP Session" },
       { "<leader>dt", function() require("dap").terminate() end,    desc = "DAP Terminate" },
-      { "<leader>du", function() require("dap-view").toggle({}) end, desc = "DAP UI" },
+      { "<leader>du", function() require("dap-view").toggle() end, desc = "DAP UI" },
       { "<leader>dj", function() require("dap").down() end, desc = "DAP Down" },
       { "<leader>dk", function() require("dap").up() end,   desc = "DAP Up" },
       { "<M-i>", function() require("dap").step_into() end, desc = "Step Into" },
@@ -28,7 +28,7 @@ return {
 
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
       vim.fn.sign_define("DapStopped", {text="󰁕", texthl="DiagnosticWarn", linehl="DapStoppedLine", numhl="DapStoppedLine"})
-      vim.fn.sign_define("DapBreakpoint", {text="", texhl="DiagnosticInfo"})
+      vim.fn.sign_define("DapBreakpoint", {text="", texthl="DiagnosticInfo"})
       vim.fn.sign_define("DapBreakpointCondition", {text="", texthl="DiagnosticInfo"})
       vim.fn.sign_define("DapBreakpointRejected", {text="", texthl="DiagnosticError"})
       vim.fn.sign_define("DapLogPoint", {text="", texthl="DiagnosticInfo"})

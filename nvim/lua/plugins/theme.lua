@@ -39,16 +39,4 @@ return {
       vim.cmd("colorscheme tokyonight-night")
     end,
   },
-  {
-		'nvim-mini/mini.icons',
-    version = "*",
-		opts = {
-			extension = {
-				lock = {
-					glyph = "",
-					hl = "MiniIconsGrey"
-				}
-			}
-		}
-  },
 }

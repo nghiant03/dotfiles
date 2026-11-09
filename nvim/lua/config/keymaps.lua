@@ -16,6 +16,9 @@ map("n", "<S-l>",        "<cmd>bnext<cr>",        	    { desc = "Next Buffer" })
 map("n", "<S-h>",        "<cmd>bprevious<cr>",    		  { desc = "Previous Buffer" })
 map("n", "<LeftMouse>",  "m'<LeftMouse>",         		  { desc = "Click (Add to Jumplist)" })
 -- Terminal
+map("n", "<leader>t", function()
+  require("config.terminal").toggle()
+end, { desc = "Toggle Terminal" })
 map("t",								 "<C-q>", "<C-\\><C-n>",				{ desc = "Terminal: Enter Normal Mode" })
 -- Visual
 map("v", "<",            "<gv",                   	    { desc = "Indent Left and Reselect" })
