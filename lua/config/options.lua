@@ -1,5 +1,5 @@
 -- :help options
--- Leaders must be set before config.keymaps and Lazy register any mappings.
+-- Leaders must be set before any mappings are registered.
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 

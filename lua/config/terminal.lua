@@ -4,7 +4,6 @@ local buf
 local function hide()
   local win = buf and vim.fn.bufwinid(buf) or -1
   if win ~= -1 then
-    -- Keep the shell job and buffer alive when its window is hidden.
     if #vim.api.nvim_tabpage_list_wins(0) == 1 then
       vim.cmd("new")
     end
