@@ -1,4 +1,8 @@
 -- :help options
+-- Leaders must be set before config.keymaps and Lazy register any mappings.
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 vim.g.python3_host_prog = vim.fn.expand("$XDG_CONFIG_HOME/nvim/.venv/bin/python3")
 vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" }

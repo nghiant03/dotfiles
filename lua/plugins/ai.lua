@@ -9,6 +9,7 @@ return {
 	},
 	{
 		"folke/sidekick.nvim",
+		dependencies = { "nvim-mini/mini.pick" },
 		opts = {
 			cli = {
 				win = {
