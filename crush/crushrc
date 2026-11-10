@@ -2,6 +2,13 @@
 
 option skill-path "$HOME/.config/agents/skills"
 
+for event in TurnEnd Interrupt StopFailure; do
+  hook add "$event" \
+    --name wakatime \
+    --command 'CRUSH_DATA_DIR="${CRUSH_DATA_DIR:-${CRUSH_PROJECT_DIR:-$PWD}/.crush}" /home/nghiant/.local/share/go/bin/wakatime-cli --sync-ai-activity' \
+    --timeout 10
+done
+
 
 gn_dir=$PWD
 until [ -d "$gn_dir/.gitnexus" ] || [ "$gn_dir" = / ]; do
