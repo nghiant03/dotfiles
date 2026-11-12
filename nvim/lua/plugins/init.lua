@@ -27,7 +27,6 @@ return {
   github("neovim/nvim-lspconfig"),
   github("onsails/lspkind.nvim"),
   github("barreiroleo/ltex_extra.nvim"),
-  github("folke/sidekick.nvim"),
   github("folke/trouble.nvim"),
   github("stevearc/aerial.nvim"),
   github("NeogitOrg/neogit"),

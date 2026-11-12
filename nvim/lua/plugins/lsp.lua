@@ -43,7 +43,7 @@ vim.lsp.config("rust_analyzer", {
 })
 
 vim.lsp.config("ltex_plus", {
-  filetypes = { "bib", "tex", "latex", "gitcommit" },
+  filetypes = { "tex", "latex", "gitcommit" },
   on_attach = function(_, _)
     require("ltex_extra").setup({})
   end,
@@ -53,7 +53,6 @@ vim.lsp.config("ltex_plus", {
         enabledPickyRules = true,
       },
       enabled = {
-        "bib",
         "tex",
         "gitcommit",
         "latex",

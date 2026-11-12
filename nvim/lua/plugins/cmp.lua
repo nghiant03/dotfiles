@@ -3,9 +3,6 @@ require("blink.cmp").setup({
     preset = "default",
     ["<Tab>"] = {
       "snippet_forward",
-      function()
-        return require("sidekick").nes_jump_or_apply()
-      end,
       "fallback",
     },
   },
