@@ -305,6 +305,7 @@ vlc
 wayland
 wget
 wl-clipboard
+xdotool
 yaml-language-server
 zathura
 zathura-pdf-mupdf
