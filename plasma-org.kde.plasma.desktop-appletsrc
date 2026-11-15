@@ -6,8 +6,8 @@ RightButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][1]
-ItemGeometries-1920x1080=Applet-45:0,496,176,288,0;Applet-44:0,240,176,256,0;Applet-47:0,96,176,144,0;Applet-48:1744,112,176,80,0;Applet-38:1744,192,176,240,0;Applet-37:1744,576,176,192,0;Applet-36:1744,432,176,144,0;Applet-43:1744.01,767.985,176,176,0;
-ItemGeometriesHorizontal=Applet-45:0,496,176,288,0;Applet-44:0,240,176,256,0;Applet-47:0,96,176,144,0;Applet-48:1744,112,176,80,0;Applet-38:1744,192,176,240,0;Applet-37:1744,576,176,192,0;Applet-36:1744,432,176,144,0;Applet-43:1744.01,767.985,176,176,0;
+ItemGeometries-1920x1080=Applet-47:0,96,176,144,0;Applet-44:0,240,176,256,0;Applet-48:1744,96,176,80,0;Applet-38:1744,176,176,240,0;Applet-45:0,496,176,288,0;Applet-36:1744,416,176,144,0;Applet-37:1744,560,176,192,0;Applet-43:1744,752,176,176,0;
+ItemGeometriesHorizontal=Applet-47:0,96,176,144,0;Applet-44:0,240,176,256,0;Applet-48:1744,96,176,80,0;Applet-38:1744,176,176,240,0;Applet-45:0,496,176,288,0;Applet-36:1744,416,176,144,0;Applet-37:1744,560,176,192,0;Applet-43:1744,752,176,176,0;
 activityId=e6703b1f-3a27-4a08-b70c-9e8e575cbd61
 formfactor=0
 immutability=1
