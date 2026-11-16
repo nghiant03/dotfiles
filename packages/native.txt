@@ -146,6 +146,7 @@ marble
 markdownpart
 massif-visualizer
 mermaid-cli
+mokutil
 mosquitto
 neovim
 ninja
@@ -194,7 +195,6 @@ rtkit
 ruby
 rust-analyzer
 rustup
-sbctl
 sbsigntools
 signon-kwallet-extension
 skrooge

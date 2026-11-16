@@ -10,6 +10,7 @@ google-cloud-cli
 libfprint-cs9711-sigfm-git
 ltex-ls-plus-bin
 onlyoffice-bin
+shim-signed-bin
 teamviewer
 tex-fmt
 universal-android-debloater
