@@ -195,6 +195,7 @@ rtkit
 ruby
 rust-analyzer
 rustup
+sbctl
 sbsigntools
 signon-kwallet-extension
 skrooge
