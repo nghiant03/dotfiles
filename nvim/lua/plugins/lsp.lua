@@ -44,6 +44,9 @@ vim.lsp.config("rust_analyzer", {
 
 vim.lsp.config("ltex_plus", {
   filetypes = { "tex", "latex", "gitcommit" },
+  handlers = {
+    ["$/progress"] = function() end,
+  },
   on_attach = function(_, _)
     require("ltex_extra").setup({})
   end,
